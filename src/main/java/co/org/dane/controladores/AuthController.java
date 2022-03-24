@@ -74,7 +74,7 @@ public class AuthController {
 	
 
 	
-	  // @PostMapping("/signup") 
+	  //@PostMapping("/signup") 
 	  public ResponseEntity<?>Inicializar(@Valid @RequestBody SignupRequest signUpRequest) {
 	  roleRepository.save(new Role(ERole.Administrador)); 
 	  roleRepository.save(new  Role(ERole.Fuente)); 
@@ -86,7 +86,7 @@ public class AuthController {
 		  
 	  User user = new User("Admin", 
 				 "Admin@gmail.com",
-				 encoder.encode("123456"));
+				 encoder.encode("MySecr3t$"));
 	  
 	  user.setRoles(roles);
 		userRepository.save(user);
