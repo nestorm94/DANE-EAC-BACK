@@ -37,39 +37,6 @@ public class EstadoEmpresa implements Serializable{
 	@Column( name = "ESTADO_EMPRESA", nullable = false, updatable = true, length = 40 )
 	private String estadoEmpresa;
 
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the estadoEmpresa
-	 */
-	public String getEstadoEmpresa() {
-		return estadoEmpresa;
-	}
-
-	/**
-	 * @param estadoEmpresa the estadoEmpresa to set
-	 */
-	public void setEstadoEmpresa(String estadoEmpresa) {
-		this.estadoEmpresa = estadoEmpresa;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	
 	
 }

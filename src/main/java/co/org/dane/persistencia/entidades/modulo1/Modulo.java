@@ -36,38 +36,5 @@ public class Modulo implements Serializable{
 	
 	@Column( name = "NOMBRE", nullable = false, updatable = true, length = 50 )
 	private String nombre;
-
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the nombre
-	 */
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * @param nombre the nombre to set
-	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 }

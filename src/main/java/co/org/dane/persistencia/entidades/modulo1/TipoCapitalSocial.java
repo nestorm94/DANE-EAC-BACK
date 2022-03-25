@@ -39,54 +39,5 @@ public class TipoCapitalSocial implements Serializable{
 	
 	@Column( name = "TIPO_CAPITAL_SOCIAL", nullable = false, updatable = true, length = 50 )
 	private String tipoCapitalSocial;
-
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the orden
-	 */
-	public int getOrden() {
-		return orden;
-	}
-
-	/**
-	 * @param orden the orden to set
-	 */
-	public void setOrden(int orden) {
-		this.orden = orden;
-	}
-
-	/**
-	 * @return the tipoCapitalSocial
-	 */
-	public String getTipoCapitalSocial() {
-		return tipoCapitalSocial;
-	}
-
-	/**
-	 * @param tipoCapitalSocial the tipoCapitalSocial to set
-	 */
-	public void setTipoCapitalSocial(String tipoCapitalSocial) {
-		this.tipoCapitalSocial = tipoCapitalSocial;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	
 	
 }

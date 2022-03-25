@@ -74,22 +74,6 @@ private static NovedadEncuestaFachada novedadEncuestaFachada;
 		return entity;
 	}
 
-
-	/**
-	 * @return the novedadEncuestaFachada
-	 */
-	public static NovedadEncuestaFachada getNovedadEncuestaFachada() {
-		return novedadEncuestaFachada;
-	}
-
-
-	/**
-	 * @param novedadEncuestaFachada the novedadEncuestaFachada to set
-	 */
-	public static void setNovedadEncuestaFachada(NovedadEncuestaFachada novedadEncuestaFachada) {
-		NovedadEncuestaFachada.novedadEncuestaFachada = novedadEncuestaFachada;
-	}
-
 }
 
 /*

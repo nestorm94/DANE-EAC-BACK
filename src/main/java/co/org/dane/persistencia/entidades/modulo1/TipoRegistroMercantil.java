@@ -37,55 +37,8 @@ public class TipoRegistroMercantil implements Serializable{
 	@Column( name = "ORDEN", nullable = false, updatable = true, length = 2 )
 	private int orden;
 	
-	/**
-	 * @return the orden
-	 */
-	public int getOrden() {
-		return orden;
-	}
-
-	/**
-	 * @param orden the orden to set
-	 */
-	public void setOrden(int orden) {
-		this.orden = orden;
-	}
-
-	/**
-	 * @return the tipoRegistroMercantil
-	 */
-	public String getTipoRegistroMercantil() {
-		return tipoRegistroMercantil;
-	}
-
-	/**
-	 * @param tipoRegistroMercantil the tipoRegistroMercantil to set
-	 */
-	public void setTipoRegistroMercantil(String tipoRegistroMercantil) {
-		this.tipoRegistroMercantil = tipoRegistroMercantil;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	@Column( name = "TIPO_REGISTRO_MERCANTIL", nullable = false, updatable = true, length = 100 )
 	private String tipoRegistroMercantil;
-
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	
 	

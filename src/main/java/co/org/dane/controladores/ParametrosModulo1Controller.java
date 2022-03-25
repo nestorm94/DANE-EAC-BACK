@@ -29,6 +29,7 @@ import co.org.dane.fachada.modulo1.TipoOrganizacionFachada;
 import co.org.dane.fachada.modulo1.TipoVariableFachada;
 import co.org.dane.persistencia.entidades.modulo1.CodigoCIIU;
 import co.org.dane.persistencia.entidades.modulo1.Departamento;
+import co.org.dane.persistencia.entidades.modulo1.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.modulo1.Municipio;
 import co.org.dane.persistencia.entidades.modulo1.SubTipoOrganizacion;
 import co.org.dane.persistencia.entidades.modulo1.TipoCapitalSocial;
@@ -207,6 +208,19 @@ public class ParametrosModulo1Controller {
 		try {
 			List<Municipio> municipios = this.serviciosParametroModulo1.findMunicipioByIdDepartamento(idDepartamento);
 			return ResponseEntity.status(HttpStatus.OK).body(MunicipioFachada.getInstance().obtenerListaDTO(municipios));
+		}catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
+	
+	
+	@GetMapping(path = "/findAllEstadoEmpresa/", 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<EstadoEmpresa>> findAllEstadoEmpresa(){
+		try {
+			List<EstadoEmpresa> estados = this.serviciosParametroModulo1.findAllEstadoEmpresa();
+			return ResponseEntity.status(HttpStatus.OK).body(estados);
 		}catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

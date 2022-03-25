@@ -40,55 +40,6 @@ public class TipoDocumento implements Serializable{
 	@Column( name = "TIPO_DOCUMENTO", nullable = false, updatable = true, length = 100 )
 	private String tipoDocumento;
 
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the orden
-	 */
-	public int getOrden() {
-		return orden;
-	}
-
-	/**
-	 * @param orden the orden to set
-	 */
-	public void setOrden(int orden) {
-		this.orden = orden;
-	}
-
-	/**
-	 * @return the tipoDocumento
-	 */
-	public String getTipoDocumento() {
-		return tipoDocumento;
-	}
-
-	/**
-	 * @param tipoDocumento the tipoDocumento to set
-	 */
-	public void setTipoDocumento(String tipoDocumento) {
-		this.tipoDocumento = tipoDocumento;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	
-
 	
 	
 }

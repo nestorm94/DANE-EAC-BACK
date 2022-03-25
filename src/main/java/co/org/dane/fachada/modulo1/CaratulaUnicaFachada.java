@@ -182,15 +182,5 @@ public class CaratulaUnicaFachada {
 		
 		return caratulaUnica;
 	}
-
-
-	public static CaratulaUnicaFachada getCaratulaUnicaFachada() {
-		return caratulaUnicaFachada;
-	}
-
-
-	public static void setCaratulaUnicaFachada(CaratulaUnicaFachada caratulaUnicaFachada) {
-		CaratulaUnicaFachada.caratulaUnicaFachada = caratulaUnicaFachada;
-	}
 	
 }

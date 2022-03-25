@@ -41,54 +41,6 @@ public class PeriodoRecoleccion implements Serializable{
 	@Column( name = "FECHA_HASTA", nullable = false )
 	private Date fechaHasta;
 
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the fechaDesde
-	 */
-	public Date getFechaDesde() {
-		return fechaDesde;
-	}
-
-	/**
-	 * @param fechaDesde the fechaDesde to set
-	 */
-	public void setFechaDesde(Date fechaDesde) {
-		this.fechaDesde = fechaDesde;
-	}
-
-	/**
-	 * @return the fechaHasta
-	 */
-	public Date getFechaHasta() {
-		return fechaHasta;
-	}
-
-	/**
-	 * @param fechaHasta the fechaHasta to set
-	 */
-	public void setFechaHasta(Date fechaHasta) {
-		this.fechaHasta = fechaHasta;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-
 	
 
 }

@@ -311,19 +311,5 @@ public class CaratulaUnicaController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
-
-	/**
-	 * @return the serviciosCaratulaUnica
-	 */
-	public IServiciosCaratulaUnica getServiciosCaratulaUnica() {
-		return serviciosCaratulaUnica;
-	}
-
-	/**
-	 * @param serviciosCaratulaUnica the serviciosCaratulaUnica to set
-	 */
-	public void setServiciosCaratulaUnica(IServiciosCaratulaUnica serviciosCaratulaUnica) {
-		this.serviciosCaratulaUnica = serviciosCaratulaUnica;
-	}
 	
 }
