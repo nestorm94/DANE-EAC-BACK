@@ -18,6 +18,7 @@ import co.org.dane.persistencia.entidades.modulo1.Directorio;
 import co.org.dane.persistencia.entidades.modulo1.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.modulo1.PeriodoRecoleccion;
 import co.org.dane.persistencia.entidades.modulo1.SubTipoOrganizacion;
+import co.org.dane.persistencia.entidades.modulo1.TipoCausa;
 import co.org.dane.persistencia.entidades.modulo1.TipoDocumento;
 import co.org.dane.persistencia.entidades.modulo1.TipoOrganizacion;
 import co.org.dane.persistencia.entidades.modulo1.TipoRegistroMercantil;
@@ -72,15 +73,22 @@ public class CaratulaUnicaFachada {
 		dto.setCualOtroEstado(entity.getCualOtroEstado());
 		dto.setNumeroUnidadesApoyo(entity.getNumeroUnidadesApoyo());
 		dto.setIdTipoDocumento(entity.getTipoDocumento() != null ? entity.getTipoDocumento().getId() : 0);
-		dto.setIdTipoRegistroMercantil(entity.getTipoRegistroMercantil() != null ? entity.getTipoRegistroMercantil().getId() : 0);
+		dto.setIdTipoRegistroMercantil(entity.getTipoRegistroMercantil() != null ? entity.getTipoRegistroMercantil().getId() : 0);		
 		dto.setIdTipoOrganizacion(entity.getTipoOrganizacion() != null ? entity.getTipoOrganizacion().getId() : 0);
-		dto.setIdSubTipoOrganizacion(entity.getSubTipoOrganizacion() != null ? entity.getSubTipoOrganizacion().getId() : 0);
+		dto.setIdTipoCausa(entity.getTipoCausa() != null ? entity.getTipoCausa().getId() : 0);
+		
+		if(entity.getSubTipoOrganizacion()==null)
+			dto.setIdSubTipoOrganizacion(0);
+		else {
+			dto.setIdSubTipoOrganizacion(entity.getSubTipoOrganizacion().getId());
+			dto.setCualTipoOrgaizacion("");
+		}
+		//dto.setIdSubTipoOrganizacion(entity.getSubTipoOrganizacion() != null ? entity.getSubTipoOrganizacion().getId() : 0);
+		
 		dto.setIdEstadoEmpresa(entity.getEstadoEmpresa() != null ? entity.getEstadoEmpresa().getId() : 0);
 		dto.setIdPeriodoRecoleccion(entity.getPeriodoRecoleccion() != null ? entity.getPeriodoRecoleccion().getId() : 0 );
 		dto.setIdDirectorio(entity.getDirectorio() != null ? entity.getDirectorio().getId() : 0);
 		
-		//dto.setIdEstadoEncuesta(entity.getDirectorio() != null ? entity.getDirectorio().getId() : 0);
-		//dto.setIdDirectorio(entity.getDirectorio() != null ? entity.getDirectorio().getId() : 0);
 		return dto;
 	}
 	
@@ -134,10 +142,17 @@ public class CaratulaUnicaFachada {
 			caratulaUnica.setTipoOrganizacion(to);
 		}
 		
+		if(dto.getIdTipoCausa() != 0) {
+			TipoCausa tc = new TipoCausa();
+			tc.setId(dto.getIdTipoCausa());
+			caratulaUnica.setTipoCausa(tc);
+		}
+		
 		if(dto.getIdSubTipoOrganizacion() != 0){
 			SubTipoOrganizacion sto = new SubTipoOrganizacion();
 			sto.setId(dto.getIdSubTipoOrganizacion());
 			caratulaUnica.setSubTipoOrganizacion(sto);
+			caratulaUnica.setCualTipoOrgaizacion("");
 		}
 
 		if(dto.getIdEstadoEmpresa() != 0){

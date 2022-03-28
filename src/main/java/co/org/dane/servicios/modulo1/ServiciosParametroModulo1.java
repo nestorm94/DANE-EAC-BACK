@@ -147,7 +147,7 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 
 	@Override
 	public List<Departamento> findAllDepartamento() throws EncuestaAnualComercioException {
-		return this.repositorioDepartamento.findAll();
+		return this.repositorioDepartamento.findAllDepartamento();
 	}
 
 	@Override

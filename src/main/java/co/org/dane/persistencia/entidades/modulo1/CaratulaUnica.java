@@ -156,6 +156,10 @@ public class CaratulaUnica implements Serializable{
 	@JoinColumn(name = "ID_ESTADO_EMPRESA_FK", nullable = true, updatable = true)
 	private EstadoEmpresa estadoEmpresa;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_TIPO_CAUSA_FK", nullable = true, updatable = true)
+	private TipoCausa tipoCausa;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
 	private Collection<CapitalSocial> capitalSocial;
 	

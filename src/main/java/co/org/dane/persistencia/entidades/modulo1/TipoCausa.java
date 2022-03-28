@@ -39,5 +39,8 @@ public class TipoCausa implements Serializable{
 	
 	@Column( name = "NOMBRE", nullable = false, updatable = true, length = 50 )
 	private String nombre;
+	
+	@Column( name = "TIENE_OPCION_OTRA", nullable = false, updatable = true )
+	private boolean tieneOpcionOtra;
 
 }

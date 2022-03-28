@@ -20,6 +20,7 @@ import co.org.dane.persistencia.entidades.modulo1.InformacionFuncionamiento;
 import co.org.dane.persistencia.entidades.modulo1.IngresosNoOperacionales;
 import co.org.dane.persistencia.entidades.modulo1.NovedadEncuesta;
 import co.org.dane.persistencia.entidades.modulo1.Operacion;
+import co.org.dane.persistencia.entidades.modulo1.TipoCausa;
 import co.org.dane.persistencia.entidades.modulo1.VariableEmpresa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioCaratulaUnica;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioDireccion;
@@ -29,6 +30,7 @@ import co.org.dane.persistencia.repositorios.modulo1.RepositorioInformacionFunci
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioIngresosNoOperacionales;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioNovedadEncuesta;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioOperacion;
+import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoCausa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioVariableEmpresa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioaCapitalSocial;
 
@@ -69,8 +71,18 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Autowired
 	private RepositorioEstadoModulos repositorioEstadoModulos;
 	
+	@Autowired
+	private RepositorioTipoCausa repositorioTipoCausa;
+	
 	@Override
-	public CaratulaUnica guardarCaratulaUnica(CaratulaUnica caratulaUnica) throws EncuestaAnualComercioException {		
+	public CaratulaUnica guardarCaratulaUnica(CaratulaUnica caratulaUnica) throws EncuestaAnualComercioException {	
+		
+		if(caratulaUnica.getTipoCausa()!=null){
+			TipoCausa tc = this.repositorioTipoCausa.findById( caratulaUnica.getTipoCausa().getId( ) ).get();
+			if( tc != null && !tc.isTieneOpcionOtra()) 
+				caratulaUnica.setCualOtroEstado("");			
+		}
+		
 		return this.repositorioCaratulaUnica.save(caratulaUnica);
 	}
 

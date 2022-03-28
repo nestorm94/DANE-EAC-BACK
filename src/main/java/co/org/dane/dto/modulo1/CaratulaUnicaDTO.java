@@ -37,6 +37,7 @@ public class CaratulaUnicaDTO implements Serializable{
 	private String numeroUnidadesApoyo;	
 	private int idTipoDocumento;
 	//vamos en este punto
+	private int idTipoCausa;
 	private int idTipoRegistroMercantil;
 	private int idTipoOrganizacion;
 	private int idSubTipoOrganizacion;
