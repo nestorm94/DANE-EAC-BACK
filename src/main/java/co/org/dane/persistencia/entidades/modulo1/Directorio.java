@@ -18,6 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -97,6 +99,20 @@ public class Directorio implements Serializable{
 		
 		@Column( name = "CUAL_OTRO_ESTADO", nullable = true, updatable = true, length = 30 )
 		private String cualOtroEstado;
+		
+		@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
+		private String usuarioCreacion;
+		
+		@Temporal(TemporalType.TIMESTAMP)
+		@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
+		private Date fechaCreacion;
+		
+		@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
+		private String usuarioModificacion;
+		
+		@Temporal(TemporalType.TIMESTAMP)
+		@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
+		private Date fechaModificacion;
 		
 		@ManyToOne(fetch = FetchType.LAZY)
 		@JoinColumn(name = "ID_USUARIO_FK", nullable = false, updatable = true)
