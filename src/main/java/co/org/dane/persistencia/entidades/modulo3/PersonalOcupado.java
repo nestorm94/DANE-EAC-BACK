@@ -1,7 +1,7 @@
 /**
  * 
  */
-package co.org.dane.persistencia.entidades.modulo2;
+package co.org.dane.persistencia.entidades.modulo3;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,7 +14,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -29,18 +28,24 @@ import lombok.Setter;
  *
  */
 @Entity
-@Table(name = "EAC_CLIENTE_PRINCIPAL")
+@Table(name = "EAC_PERSONAL_OCUPADO")
 @Setter
 @Getter
-public class ClientePrincipal implements Serializable{
+public class PersonalOcupado implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "SeqClientePrincipal" )
-	@SequenceGenerator( name = "SeqClientePrincipal", sequenceName = "SEQ_CLIENTE_PRINCIPAL", initialValue = 1, allocationSize = 1 )
-	@Column( name = "ID_CLIENTE_PRINCIPAL_PK", nullable = false )
+	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "SeqPersonalOcupado" )
+	@SequenceGenerator( name = "SeqPersonalOcupado", sequenceName = "SEQ_PERSONAL_OCUPADO", initialValue = 1, allocationSize = 1 )
+	@Column( name = "ID_PERSONAL_OCUPADO_PK", nullable = false )
 	private long id;
+
+	@Column( name = "MUJERES", nullable = true, updatable = true, length = 7 )
+	private int mujeres;
+	
+	@Column( name = "HOMBRES", nullable = true, updatable = true, length = 7 )
+	private int hombres;
 	
 	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
 	private String usuarioCreacion;
@@ -57,10 +62,10 @@ public class ClientePrincipal implements Serializable{
 	private Date fechaModificacion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_TIPO_CLIENTES_FK", nullable = false, updatable = true)
-	private TipoClientes tipoClientes;
-
-	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="ID_TIPO_CONTRATACION_FK", nullable = false, updatable = true)
+	private TipoContratacion tipoContratacion;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CARATULA_UNICA_FK", nullable = false, updatable = true)
 	private CaratulaUnica caratulaUnica;
 }

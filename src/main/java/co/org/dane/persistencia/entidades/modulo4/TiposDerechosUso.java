@@ -1,7 +1,7 @@
 /**
  * 
  */
-package co.org.dane.persistencia.entidades.modulo2;
+package co.org.dane.persistencia.entidades.modulo4;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -24,26 +24,26 @@ import lombok.Setter;
  *
  */
 @Entity
-@Table(name = "EAC_TIPOS_METODOS_VENTA")
+@Table(name = "EAC_TIPOS_DERECHO")
 @Setter
 @Getter
-public class TiposMetodosVenta implements Serializable{
+public class TiposDerechosUso implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "SeqTiposMetodosVenta" )
-	@SequenceGenerator( name = "SeqTiposMetodosVenta", sequenceName = "SEQ_TIPOS_METODOS_VENTA", initialValue = 1, allocationSize = 1 )
-	@Column( name = "ID_TIPOS_METODOS_VENTA_PK", nullable = false )
+	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "SeqTiposDerechosUso" )
+	@SequenceGenerator( name = "SeqTiposDerechosUso", sequenceName = "SEQ_TIPOS_DERECHO", initialValue = 1, allocationSize = 1 )
+	@Column( name = "ID_TIPO_DERECHO_PK", nullable = false )
 	private int id;
 	
 	@Column( name = "CODIGO", nullable = false, updatable = true, length = 2 )
 	private int codigo;
 	
-	@Column( name = "ORDEN", nullable = false, updatable = true, length = 2 )
+	@Column( name = "ORDEN", nullable = false, updatable = true, length = 3 )
 	private int orden;
 	
-	@Column( name = "NOMBRE", nullable = false, updatable = true, length = 100 )
+	@Column( name = "NOMBRE", nullable = false, updatable = true, length = 200 )
 	private String nombre;
 	
 	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
@@ -59,5 +59,5 @@ public class TiposMetodosVenta implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
 	private Date fechaModificacion;
-	
+
 }

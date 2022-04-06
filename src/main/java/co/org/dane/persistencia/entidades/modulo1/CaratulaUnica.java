@@ -27,6 +27,12 @@ import co.org.dane.persistencia.entidades.modulo2.IngresosNetosPorGrupos;
 import co.org.dane.persistencia.entidades.modulo2.MetodosVenta;
 import co.org.dane.persistencia.entidades.modulo2.VehiculosComercializados;
 import co.org.dane.persistencia.entidades.modulo2.VentasVehiculosMotos;
+import co.org.dane.persistencia.entidades.modulo3.GastosCausadosPersonal;
+import co.org.dane.persistencia.entidades.modulo3.PersonalOcupado;
+import co.org.dane.persistencia.entidades.modulo4.ComprasInventario;
+import co.org.dane.persistencia.entidades.modulo4.CostosCausados;
+import co.org.dane.persistencia.entidades.modulo4.OtrosGastosCausados;
+import co.org.dane.persistencia.entidades.modulo4.ValorActivos;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -227,6 +233,31 @@ public class CaratulaUnica implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
 	private Collection<VehiculosComercializados> vehiculosComercializados;
 	
+	//----------------------------------------
+	//Relaciones con las entidaes de Modulo 3
+	//----------------------------------------
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
+	private Collection<PersonalOcupado> personalOcupado;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
+	private Collection<GastosCausadosPersonal> gastosCausadosPersonal;
+	
+	//----------------------------------------
+	//Relaciones con las entidaes de Modulo 4
+	//----------------------------------------
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
+	private Collection<ComprasInventario> comprasInventarios;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
+	private Collection<CostosCausados> costosCausados;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
+	private Collection<OtrosGastosCausados> otrosGastosCausados;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
+	private Collection<ValorActivos> valorActivos;
 	
 	@Override
 	public String toString() {

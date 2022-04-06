@@ -1,7 +1,4 @@
-/**
- * 
- */
-package co.org.dane.persistencia.entidades.modulo2;
+package co.org.dane.persistencia.entidades.modulo3;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,22 +16,18 @@ import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * @author ALFONSO
- *
- */
 @Entity
-@Table(name = "EAC_TIPOS_METODOS_VENTA")
+@Table(name = "EAC_TIPO_CONTRATACION")
 @Setter
 @Getter
-public class TiposMetodosVenta implements Serializable{
+public class TipoContratacion implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "SeqTiposMetodosVenta" )
-	@SequenceGenerator( name = "SeqTiposMetodosVenta", sequenceName = "SEQ_TIPOS_METODOS_VENTA", initialValue = 1, allocationSize = 1 )
-	@Column( name = "ID_TIPOS_METODOS_VENTA_PK", nullable = false )
+	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "SeqTipoContratacion" )
+	@SequenceGenerator( name = "SeqTipoContratacion", sequenceName = "SEQ_TIPO_CONTRATACION", initialValue = 1, allocationSize = 1 )
+	@Column( name = "ID_TIPO_CONTRATACION_PK", nullable = false )
 	private int id;
 	
 	@Column( name = "CODIGO", nullable = false, updatable = true, length = 2 )
@@ -59,5 +52,5 @@ public class TiposMetodosVenta implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
 	private Date fechaModificacion;
-	
+
 }
