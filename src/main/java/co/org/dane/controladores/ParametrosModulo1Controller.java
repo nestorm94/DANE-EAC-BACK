@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,7 @@ import co.org.dane.fachada.modulo1.TipoOrganizacionFachada;
 import co.org.dane.fachada.modulo1.TipoVariableFachada;
 import co.org.dane.persistencia.entidades.modulo1.CodigoCIIU;
 import co.org.dane.persistencia.entidades.modulo1.Departamento;
+import co.org.dane.persistencia.entidades.modulo1.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.modulo1.Municipio;
 import co.org.dane.persistencia.entidades.modulo1.SubTipoOrganizacion;
 import co.org.dane.persistencia.entidades.modulo1.TipoCapitalSocial;
@@ -41,6 +43,8 @@ import co.org.dane.persistencia.entidades.modulo1.TipoOrganizacion;
 import co.org.dane.persistencia.entidades.modulo1.TipoRegistroMercantil;
 import co.org.dane.persistencia.entidades.modulo1.TipoVariable;
 import co.org.dane.servicios.modulo1.IServiciosParametroModulo1;
+import co.org.dane.springjwt.security.jwt.JwtUtils;
+
 
 /**
  * @author ALFONSO
@@ -53,6 +57,9 @@ public class ParametrosModulo1Controller {
 	
 	@Autowired
 	private IServiciosParametroModulo1 serviciosParametroModulo1;
+	
+	@Autowired
+	private JwtUtils jwtUtils;
 
 	@GetMapping(path = "/getAllTipoCapitalSocial/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -153,8 +160,11 @@ public class ParametrosModulo1Controller {
 	
 	@GetMapping(path = "/getAllTipoVariable/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<TipoVariableDTO>> getAllTipoVariable(){
+	public ResponseEntity<List<TipoVariableDTO>> getAllTipoVariable(@RequestHeader("Authorization") String token){
 		try {
+			System.out.println("token: " + token);
+			System.out.println("token: " + jwtUtils.getUserNameFromJwtToken(token.substring(6)));
+			
 			List<TipoVariable> tiposVariable = this.serviciosParametroModulo1.findAllTipoVariable();
 			return ResponseEntity.status(HttpStatus.OK).body(TipoVariableFachada.getInstance().obtenerListaDTO(tiposVariable));
 		}catch (Exception e) {
@@ -207,6 +217,19 @@ public class ParametrosModulo1Controller {
 		try {
 			List<Municipio> municipios = this.serviciosParametroModulo1.findMunicipioByIdDepartamento(idDepartamento);
 			return ResponseEntity.status(HttpStatus.OK).body(MunicipioFachada.getInstance().obtenerListaDTO(municipios));
+		}catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
+	
+	
+	@GetMapping(path = "/findAllEstadoEmpresa/", 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<EstadoEmpresa>> findAllEstadoEmpresa(){
+		try {
+			List<EstadoEmpresa> estados = this.serviciosParametroModulo1.findAllEstadoEmpresa();
+			return ResponseEntity.status(HttpStatus.OK).body(estados);
 		}catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

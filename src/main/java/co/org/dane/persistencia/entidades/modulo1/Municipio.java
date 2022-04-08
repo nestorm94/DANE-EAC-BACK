@@ -4,6 +4,7 @@
 package co.org.dane.persistencia.entidades.modulo1;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -43,68 +46,21 @@ public class Municipio implements Serializable{
 	@Column( name = "NOMBRE", nullable = false, updatable = true, length = 100 )
 	private String nombre;
 	
+	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioCreacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
+	private Date fechaCreacion;
+	
+	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioModificacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
+	private Date fechaModificacion;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_DEPARTAMENTO_FK", nullable = true, updatable = true)
 	private Departamento departamento;
-
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the codigo
-	 */
-	public int getCodigo() {
-		return codigo;
-	}
-
-	/**
-	 * @param codigo the codigo to set
-	 */
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
-
-	/**
-	 * @return the nombre
-	 */
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * @param nombre the nombre to set
-	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	/**
-	 * @return the departamento
-	 */
-	public Departamento getDepartamento() {
-		return departamento;
-	}
-
-	/**
-	 * @param departamento the departamento to set
-	 */
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
 }

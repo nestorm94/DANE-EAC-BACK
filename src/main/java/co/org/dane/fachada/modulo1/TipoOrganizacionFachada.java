@@ -59,22 +59,6 @@ public class TipoOrganizacionFachada {
 		
 		return entity;
 	}
-
-	/**
-	 * @return the tipoOrganizacionFachada
-	 */
-	public static TipoOrganizacionFachada getTipoOrganizacionFachada() {
-		return tipoOrganizacionFachada;
-	}
-
-	/**
-	 * @param tipoOrganizacionFachada the tipoOrganizacionFachada to set
-	 */
-	public static void setTipoOrganizacionFachada(TipoOrganizacionFachada tipoOrganizacionFachada) {
-		TipoOrganizacionFachada.tipoOrganizacionFachada = tipoOrganizacionFachada;
-	}
-	
-	
 }
 
 /*

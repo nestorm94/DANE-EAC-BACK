@@ -4,6 +4,7 @@
 package co.org.dane.persistencia.entidades.modulo1;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,6 +43,20 @@ public class IngresosNoOperacionales implements Serializable{
 	@Column( name = "VALOR", nullable = false, updatable = true, length = 12 )
 	private long valor;
 	
+	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioCreacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
+	private Date fechaCreacion;
+	
+	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioModificacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
+	private Date fechaModificacion;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ID_TIPO_INGRESO_NO_OPERACIONAL_FK")
 	private TipoIngresosNoOperacionales tipoIngresosNoOperacionales;
@@ -47,66 +64,5 @@ public class IngresosNoOperacionales implements Serializable{
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ID_CARATULA_UNICA_FK")
 	private CaratulaUnica caratulaUnica;
-
-	public long getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the valor
-	 */
-	public long getValor() {
-		return valor;
-	}
-
-	/**
-	 * @param valor the valor to set
-	 */
-	public void setValor(long valor) {
-		this.valor = valor;
-	}
-
-	/**
-	 * @return the tipoIngresosNoOperacionales
-	 */
-	public TipoIngresosNoOperacionales getTipoIngresosNoOperacionales() {
-		return tipoIngresosNoOperacionales;
-	}
-
-	/**
-	 * @param tipoIngresosNoOperacionales the tipoIngresosNoOperacionales to set
-	 */
-	public void setTipoIngresosNoOperacionales(TipoIngresosNoOperacionales tipoIngresosNoOperacionales) {
-		this.tipoIngresosNoOperacionales = tipoIngresosNoOperacionales;
-	}
-
-	/**
-	 * @return the caratulaUnica
-	 */
-	public CaratulaUnica getCaratulaUnica() {
-		return caratulaUnica;
-	}
-
-	/**
-	 * @param caratulaUnica the caratulaUnica to set
-	 */
-	public void setCaratulaUnica(CaratulaUnica caratulaUnica) {
-		this.caratulaUnica = caratulaUnica;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
 
 }

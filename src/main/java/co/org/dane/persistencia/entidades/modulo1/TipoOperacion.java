@@ -4,6 +4,7 @@
 package co.org.dane.persistencia.entidades.modulo1;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,51 +43,17 @@ public class TipoOperacion implements Serializable{
 	@Column( name = "TIPO_OPERACION", nullable = false, updatable = true, length = 50 )
 	private String tipoOperacion;
 
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the orden
-	 */
-	public int getOrden() {
-		return orden;
-	}
-
-	/**
-	 * @param orden the orden to set
-	 */
-	public void setOrden(int orden) {
-		this.orden = orden;
-	}
-
-	/**
-	 * @return the tipoOperacion
-	 */
-	public String getTipoOperacion() {
-		return tipoOperacion;
-	}
-
-	/**
-	 * @param tipoOperacion the tipoOperacion to set
-	 */
-	public void setTipoOperacion(String tipoOperacion) {
-		this.tipoOperacion = tipoOperacion;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioCreacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
+	private Date fechaCreacion;
+	
+	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioModificacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
+	private Date fechaModificacion;
 }
