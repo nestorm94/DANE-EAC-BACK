@@ -4,7 +4,6 @@
 package co.org.dane.persistencia.entidades.modulo1;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -63,21 +60,138 @@ public class VariableEmpresa implements Serializable{
 	@JoinColumn(name = "ID_CODIGO_CIIU_FK", nullable = false, updatable = true)
 	private CodigoCIIU codigoCIIU;
 	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CARATULA_UNICA_FK", nullable = false, updatable = true)
 	private CaratulaUnica caratulaUnica;
+
+	public long getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * @return the numeroEstablecimientos
+	 */
+	public int getNumeroEstablecimientos() {
+		return numeroEstablecimientos;
+	}
+
+	/**
+	 * @param numeroEstablecimientos the numeroEstablecimientos to set
+	 */
+	public void setNumeroEstablecimientos(int numeroEstablecimientos) {
+		this.numeroEstablecimientos = numeroEstablecimientos;
+	}
+
+	/**
+	 * @return the ingreso
+	 */
+	public long getIngreso() {
+		return ingreso;
+	}
+
+	/**
+	 * @param ingreso the ingreso to set
+	 */
+	public void setIngreso(long ingreso) {
+		this.ingreso = ingreso;
+	}
+
+	/**
+	 * @return the personalOcupado
+	 */
+	public int getPersonalOcupado() {
+		return personalOcupado;
+	}
+
+	/**
+	 * @param personalOcupado the personalOcupado to set
+	 */
+	public void setPersonalOcupado(int personalOcupado) {
+		this.personalOcupado = personalOcupado;
+	}
+
+	/**
+	 * @return the remuneracion
+	 */
+	public long getRemuneracion() {
+		return remuneracion;
+	}
+
+	/**
+	 * @param remuneracion the remuneracion to set
+	 */
+	public void setRemuneracion(long remuneracion) {
+		this.remuneracion = remuneracion;
+	}
+
+	/**
+	 * @return the otrosCostosGastos
+	 */
+	public long getOtrosCostosGastos() {
+		return otrosCostosGastos;
+	}
+
+	/**
+	 * @param otrosCostosGastos the otrosCostosGastos to set
+	 */
+	public void setOtrosCostosGastos(long otrosCostosGastos) {
+		this.otrosCostosGastos = otrosCostosGastos;
+	}
+
+	/**
+	 * @return the seccion
+	 */
+	public TipoVariable getSeccion() {
+		return seccion;
+	}
+
+	/**
+	 * @param seccion the seccion to set
+	 */
+	public void setSeccion(TipoVariable seccion) {
+		this.seccion = seccion;
+	}
+
+	/**
+	 * @return the codigoCIIU
+	 */
+	public CodigoCIIU getCodigoCIIU() {
+		return codigoCIIU;
+	}
+
+	/**
+	 * @param codigoCIIU the codigoCIIU to set
+	 */
+	public void setCodigoCIIU(CodigoCIIU codigoCIIU) {
+		this.codigoCIIU = codigoCIIU;
+	}
+
+	/**
+	 * @return the caratulaUnica
+	 */
+	public CaratulaUnica getCaratulaUnica() {
+		return caratulaUnica;
+	}
+
+	/**
+	 * @param caratulaUnica the caratulaUnica to set
+	 */
+	public void setCaratulaUnica(CaratulaUnica caratulaUnica) {
+		this.caratulaUnica = caratulaUnica;
+	}
+
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
 }

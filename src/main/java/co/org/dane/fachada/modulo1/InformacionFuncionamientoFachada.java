@@ -100,6 +100,23 @@ private static InformacionFuncionamientoFachada informacionFuncionamientoFachada
 		return entity;
 	}
 
+
+	/**
+	 * @return the informacionFuncionamientoFachada
+	 */
+	public static InformacionFuncionamientoFachada getInformacionFuncionamientoFachada() {
+		return informacionFuncionamientoFachada;
+	}
+
+
+	/**
+	 * @param informacionFuncionamientoFachada the informacionFuncionamientoFachada to set
+	 */
+	public static void setInformacionFuncionamientoFachada(
+			InformacionFuncionamientoFachada informacionFuncionamientoFachada) {
+		InformacionFuncionamientoFachada.informacionFuncionamientoFachada = informacionFuncionamientoFachada;
+	}
+
 }
 
 /*

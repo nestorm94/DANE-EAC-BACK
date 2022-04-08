@@ -57,4 +57,18 @@ public class MunicipioFachada {
 		
 		return entity;
 	}
+
+	/**
+	 * @return the municipioFachada
+	 */
+	public static MunicipioFachada getMunicipioFachada() {
+		return municipioFachada;
+	}
+
+	/**
+	 * @param municipioFachada the municipioFachada to set
+	 */
+	public static void setMunicipioFachada(MunicipioFachada municipioFachada) {
+		MunicipioFachada.municipioFachada = municipioFachada;
+	}
 }

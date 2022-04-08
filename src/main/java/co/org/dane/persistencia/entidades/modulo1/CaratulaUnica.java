@@ -19,20 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import co.org.dane.persistencia.entidades.modulo2.ClientePrincipal;
-import co.org.dane.persistencia.entidades.modulo2.IngresosNetosPorGrupos;
-import co.org.dane.persistencia.entidades.modulo2.MetodosVenta;
-import co.org.dane.persistencia.entidades.modulo2.VehiculosComercializados;
-import co.org.dane.persistencia.entidades.modulo2.VentasVehiculosMotos;
-import co.org.dane.persistencia.entidades.modulo3.GastosCausadosPersonal;
-import co.org.dane.persistencia.entidades.modulo3.PersonalOcupado;
-import co.org.dane.persistencia.entidades.modulo4.ComprasInventario;
-import co.org.dane.persistencia.entidades.modulo4.CostosCausados;
-import co.org.dane.persistencia.entidades.modulo4.OtrosGastosCausados;
-import co.org.dane.persistencia.entidades.modulo4.ValorActivos;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -116,20 +103,6 @@ public class CaratulaUnica implements Serializable{
 	@Column( name = "NUMERO_UNIDADES_APOYO", nullable = true, updatable = true, length = 5 )
 	private String numeroUnidadesApoyo;
 	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
-	
 //	@ManyToOne(fetch = FetchType.LAZY)
 //	@JoinColumn(name = "ID_DIRECCION_PRINCIPAL_FK", nullable = true, updatable = true)
 //	private Direccion direccionPrincipal;
@@ -178,10 +151,6 @@ public class CaratulaUnica implements Serializable{
 	@JoinColumn(name = "ID_ESTADO_EMPRESA_FK", nullable = true, updatable = true)
 	private EstadoEmpresa estadoEmpresa;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_TIPO_CAUSA_FK", nullable = true, updatable = true)
-	private TipoCausa tipoCausa;
-	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
 	private Collection<CapitalSocial> capitalSocial;
 	
@@ -213,52 +182,7 @@ public class CaratulaUnica implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_DIRECTORIO_FK", nullable = false, updatable = true)
 	private Directorio directorio;
-	
-	//----------------------------------------
-	//Relaciones con las entidaes de Modulo 2
-	//----------------------------------------
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<IngresosNetosPorGrupos> ingresosNetosPorGrupos;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<VentasVehiculosMotos> ventasVehiculosMotos; 
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<MetodosVenta> metodosVenta;
-	
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private ClientePrincipal clientePrincipal;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<VehiculosComercializados> vehiculosComercializados;
-	
-	//----------------------------------------
-	//Relaciones con las entidaes de Modulo 3
-	//----------------------------------------
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<PersonalOcupado> personalOcupado;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<GastosCausadosPersonal> gastosCausadosPersonal;
-	
-	//----------------------------------------
-	//Relaciones con las entidaes de Modulo 4
-	//----------------------------------------
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<ComprasInventario> comprasInventarios;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<CostosCausados> costosCausados;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<OtrosGastosCausados> otrosGastosCausados;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<ValorActivos> valorActivos;
-	
 	@Override
 	public String toString() {
 		return "CaratulaUnica [id=" + id + ", numeroOrden=" + numeroOrden + ", numeroDocumento=" + numeroDocumento
@@ -276,6 +200,473 @@ public class CaratulaUnica implements Serializable{
 				+ ", informacionFuncionamiento=" + informacionFuncionamiento + ", periodoRecoleccion="
 				+ periodoRecoleccion + ", novedadesEncuestas=" + novedadesEncuestas + ", estadosEncuestas="
 				+ estadosEncuestas + ", estadoModulos=" + estadoModulos + ", directorio=" + directorio + "]";
+	}
+
+	public long getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * @return the numeroOrden
+	 */
+	public int getNumeroOrden() {
+		return numeroOrden;
+	}
+
+	/**
+	 * @param numeroOrden the numeroOrden to set
+	 */
+	public void setNumeroOrden(int numeroOrden) {
+		this.numeroOrden = numeroOrden;
+	}
+
+	/**
+	 * @return the numeroDocumento
+	 */
+	public long getNumeroDocumento() {
+		return numeroDocumento;
+	}
+
+	/**
+	 * @param numeroDocumento the numeroDocumento to set
+	 */
+	public void setNumeroDocumento(long numeroDocumento) {
+		this.numeroDocumento = numeroDocumento;
+	}
+
+	/**
+	 * @return the digitoVerificacion
+	 */
+	public byte getDigitoVerificacion() {
+		return digitoVerificacion;
+	}
+
+	/**
+	 * @param digitoVerificacion the digitoVerificacion to set
+	 */
+	public void setDigitoVerificacion(byte digitoVerificacion) {
+		this.digitoVerificacion = digitoVerificacion;
+	}
+
+	/**
+	 * @return the numeroCamara
+	 */
+	public int getNumeroCamara() {
+		return numeroCamara;
+	}
+
+	/**
+	 * @param numeroCamara the numeroCamara to set
+	 */
+	public void setNumeroCamara(int numeroCamara) {
+		this.numeroCamara = numeroCamara;
+	}
+
+	/**
+	 * @return the numeroRegistro
+	 */
+	public long getNumeroRegistro() {
+		return numeroRegistro;
+	}
+
+	/**
+	 * @param numeroRegistro the numeroRegistro to set
+	 */
+	public void setNumeroRegistro(long numeroRegistro) {
+		this.numeroRegistro = numeroRegistro;
+	}
+
+	/**
+	 * @return the razonSocial
+	 */
+	public String getRazonSocial() {
+		return razonSocial;
+	}
+
+	/**
+	 * @param razonSocial the razonSocial to set
+	 */
+	public void setRazonSocial(String razonSocial) {
+		this.razonSocial = razonSocial;
+	}
+
+	/**
+	 * @return the georeferenciaGerecia
+	 */
+	public double getGeoreferenciaGerecia() {
+		return georeferenciaGerecia;
+	}
+
+	/**
+	 * @param georeferenciaGerecia the georeferenciaGerecia to set
+	 */
+	public void setGeoreferenciaGerecia(double georeferenciaGerecia) {
+		this.georeferenciaGerecia = georeferenciaGerecia;
+	}
+
+	/**
+	 * @return the nombreComercial
+	 */
+	public String getNombreComercial() {
+		return nombreComercial;
+	}
+
+	/**
+	 * @param nombreComercial the nombreComercial to set
+	 */
+	public void setNombreComercial(String nombreComercial) {
+		this.nombreComercial = nombreComercial;
+	}
+
+	/**
+	 * @return the sigla
+	 */
+	public String getSigla() {
+		return sigla;
+	}
+
+	/**
+	 * @param sigla the sigla to set
+	 */
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	/**
+	 * @return the paginaWeb
+	 */
+	public String getPaginaWeb() {
+		return paginaWeb;
+	}
+
+	/**
+	 * @param paginaWeb the paginaWeb to set
+	 */
+	public void setPaginaWeb(String paginaWeb) {
+		this.paginaWeb = paginaWeb;
+	}
+
+	/**
+	 * @return the georeferenciaNotificacion
+	 */
+	public double getGeoreferenciaNotificacion() {
+		return georeferenciaNotificacion;
+	}
+
+	/**
+	 * @param georeferenciaNotificacion the georeferenciaNotificacion to set
+	 */
+	public void setGeoreferenciaNotificacion(double georeferenciaNotificacion) {
+		this.georeferenciaNotificacion = georeferenciaNotificacion;
+	}
+
+	/**
+	 * @return the cualTipoOrgaizacion
+	 */
+	public String getCualTipoOrgaizacion() {
+		return cualTipoOrgaizacion;
+	}
+
+	/**
+	 * @param cualTipoOrgaizacion the cualTipoOrgaizacion to set
+	 */
+	public void setCualTipoOrgaizacion(String cualTipoOrgaizacion) {
+		this.cualTipoOrgaizacion = cualTipoOrgaizacion;
+	}
+
+	/**
+	 * @return the fechaConstitucionDesde
+	 */
+	public Date getFechaConstitucionDesde() {
+		return fechaConstitucionDesde;
+	}
+
+	/**
+	 * @param fechaConstitucionDesde the fechaConstitucionDesde to set
+	 */
+	public void setFechaConstitucionDesde(Date fechaConstitucionDesde) {
+		this.fechaConstitucionDesde = fechaConstitucionDesde;
+	}
+
+	/**
+	 * @return the fechaConstitucionHasta
+	 */
+	public Date getFechaConstitucionHasta() {
+		return fechaConstitucionHasta;
+	}
+
+	/**
+	 * @param fechaConstitucionHasta the fechaConstitucionHasta to set
+	 */
+	public void setFechaConstitucionHasta(Date fechaConstitucionHasta) {
+		this.fechaConstitucionHasta = fechaConstitucionHasta;
+	}
+
+	/**
+	 * @return the cualOtroEstado
+	 */
+	public String getCualOtroEstado() {
+		return cualOtroEstado;
+	}
+
+	/**
+	 * @param cualOtroEstado the cualOtroEstado to set
+	 */
+	public void setCualOtroEstado(String cualOtroEstado) {
+		this.cualOtroEstado = cualOtroEstado;
+	}
+
+	/**
+	 * @return the numeroUnidadesApoyo
+	 */
+	public String getNumeroUnidadesApoyo() {
+		return numeroUnidadesApoyo;
+	}
+
+	/**
+	 * @param numeroUnidadesApoyo the numeroUnidadesApoyo to set
+	 */
+	public void setNumeroUnidadesApoyo(String numeroUnidadesApoyo) {
+		this.numeroUnidadesApoyo = numeroUnidadesApoyo;
+	}
+
+	/**
+	 * @return the direcciones
+	 */
+	public Collection<Direccion> getDirecciones() {
+		return direcciones;
+	}
+
+	/**
+	 * @param direcciones the direcciones to set
+	 */
+	public void setDirecciones(Collection<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
+
+	/**
+	 * @return the tipoDocumento
+	 */
+	public TipoDocumento getTipoDocumento() {
+		return tipoDocumento;
+	}
+
+	/**
+	 * @param tipoDocumento the tipoDocumento to set
+	 */
+	public void setTipoDocumento(TipoDocumento tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+
+	/**
+	 * @return the tipoRegistroMercantil
+	 */
+	public TipoRegistroMercantil getTipoRegistroMercantil() {
+		return tipoRegistroMercantil;
+	}
+
+	/**
+	 * @param tipoRegistroMercantil the tipoRegistroMercantil to set
+	 */
+	public void setTipoRegistroMercantil(TipoRegistroMercantil tipoRegistroMercantil) {
+		this.tipoRegistroMercantil = tipoRegistroMercantil;
+	}
+
+	/**
+	 * @return the tipoOrganizacion
+	 */
+	public TipoOrganizacion getTipoOrganizacion() {
+		return tipoOrganizacion;
+	}
+
+	/**
+	 * @param tipoOrganizacion the tipoOrganizacion to set
+	 */
+	public void setTipoOrganizacion(TipoOrganizacion tipoOrganizacion) {
+		this.tipoOrganizacion = tipoOrganizacion;
+	}
+
+	/**
+	 * @return the subTipoOrganizacion
+	 */
+	public SubTipoOrganizacion getSubTipoOrganizacion() {
+		return subTipoOrganizacion;
+	}
+
+	/**
+	 * @param subTipoOrganizacion the subTipoOrganizacion to set
+	 */
+	public void setSubTipoOrganizacion(SubTipoOrganizacion subTipoOrganizacion) {
+		this.subTipoOrganizacion = subTipoOrganizacion;
+	}
+
+	/**
+	 * @return the estadoEmpresa
+	 */
+	public EstadoEmpresa getEstadoEmpresa() {
+		return estadoEmpresa;
+	}
+
+	/**
+	 * @param estadoEmpresa the estadoEmpresa to set
+	 */
+	public void setEstadoEmpresa(EstadoEmpresa estadoEmpresa) {
+		this.estadoEmpresa = estadoEmpresa;
+	}
+
+	/**
+	 * @return the capitalSocial
+	 */
+	public Collection<CapitalSocial> getCapitalSocial() {
+		return capitalSocial;
+	}
+
+	/**
+	 * @param capitalSocial the capitalSocial to set
+	 */
+	public void setCapitalSocial(Collection<CapitalSocial> capitalSocial) {
+		this.capitalSocial = capitalSocial;
+	}
+
+	/**
+	 * @return the operaciones
+	 */
+	public Collection<Operacion> getOperaciones() {
+		return operaciones;
+	}
+
+	/**
+	 * @param operaciones the operaciones to set
+	 */
+	public void setOperaciones(Collection<Operacion> operaciones) {
+		this.operaciones = operaciones;
+	}
+
+	/**
+	 * @return the variablesEmpresa
+	 */
+	public Collection<VariableEmpresa> getVariablesEmpresa() {
+		return variablesEmpresa;
+	}
+
+	/**
+	 * @param variablesEmpresa the variablesEmpresa to set
+	 */
+	public void setVariablesEmpresa(Collection<VariableEmpresa> variablesEmpresa) {
+		this.variablesEmpresa = variablesEmpresa;
+	}
+
+	/**
+	 * @return the ingresosNoOperacionales
+	 */
+	public Collection<IngresosNoOperacionales> getIngresosNoOperacionales() {
+		return ingresosNoOperacionales;
+	}
+
+	/**
+	 * @param ingresosNoOperacionales the ingresosNoOperacionales to set
+	 */
+	public void setIngresosNoOperacionales(Collection<IngresosNoOperacionales> ingresosNoOperacionales) {
+		this.ingresosNoOperacionales = ingresosNoOperacionales;
+	}
+
+	/**
+	 * @return the informacionFuncionamiento
+	 */
+	public InformacionFuncionamiento getInformacionFuncionamiento() {
+		return informacionFuncionamiento;
+	}
+
+	/**
+	 * @param informacionFuncionamiento the informacionFuncionamiento to set
+	 */
+	public void setInformacionFuncionamiento(InformacionFuncionamiento informacionFuncionamiento) {
+		this.informacionFuncionamiento = informacionFuncionamiento;
+	}
+
+	/**
+	 * @return the periodoRecoleccion
+	 */
+	public PeriodoRecoleccion getPeriodoRecoleccion() {
+		return periodoRecoleccion;
+	}
+
+	/**
+	 * @param periodoRecoleccion the periodoRecoleccion to set
+	 */
+	public void setPeriodoRecoleccion(PeriodoRecoleccion periodoRecoleccion) {
+		this.periodoRecoleccion = periodoRecoleccion;
+	}
+
+	/**
+	 * @return the novedadesEncuestas
+	 */
+	public Collection<NovedadEncuesta> getNovedadesEncuestas() {
+		return novedadesEncuestas;
+	}
+
+	/**
+	 * @param novedadesEncuestas the novedadesEncuestas to set
+	 */
+	public void setNovedadesEncuestas(Collection<NovedadEncuesta> novedadesEncuestas) {
+		this.novedadesEncuestas = novedadesEncuestas;
+	}
+
+	/**
+	 * @return the estadosEncuestas
+	 */
+	public Collection<EstadoEncuesta> getEstadosEncuestas() {
+		return estadosEncuestas;
+	}
+
+	/**
+	 * @param estadosEncuestas the estadosEncuestas to set
+	 */
+	public void setEstadosEncuestas(Collection<EstadoEncuesta> estadosEncuestas) {
+		this.estadosEncuestas = estadosEncuestas;
+	}
+
+	/**
+	 * @return the estadoModulos
+	 */
+	public Collection<EstadoModulos> getEstadoModulos() {
+		return estadoModulos;
+	}
+
+	/**
+	 * @param estadoModulos the estadoModulos to set
+	 */
+	public void setEstadoModulos(Collection<EstadoModulos> estadoModulos) {
+		this.estadoModulos = estadoModulos;
+	}
+
+	/**
+	 * @return the directorio
+	 */
+	public Directorio getDirectorio() {
+		return directorio;
+	}
+
+	/**
+	 * @param directorio the directorio to set
+	 */
+	public void setDirectorio(Directorio directorio) {
+		this.directorio = directorio;
+	}
+
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	

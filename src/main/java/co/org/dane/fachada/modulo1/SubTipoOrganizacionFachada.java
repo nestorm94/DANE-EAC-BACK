@@ -59,4 +59,18 @@ public class SubTipoOrganizacionFachada {
 		
 		return entity;
 	}
+
+	/**
+	 * @return the subTipoOrganizacionFachada
+	 */
+	public static SubTipoOrganizacionFachada getSubTipoOrganizacionFachada() {
+		return subTipoOrganizacionFachada;
+	}
+
+	/**
+	 * @param subTipoOrganizacionFachada the subTipoOrganizacionFachada to set
+	 */
+	public static void setSubTipoOrganizacionFachada(SubTipoOrganizacionFachada subTipoOrganizacionFachada) {
+		SubTipoOrganizacionFachada.subTipoOrganizacionFachada = subTipoOrganizacionFachada;
+	}
 }

@@ -16,7 +16,7 @@ import co.org.dane.persistencia.entidades.modulo1.TipoCausa;
  *
  */
 @Repository
-public interface RepositorioTipoCausa extends JpaRepository<TipoCausa, Integer>{
+public interface RepositorioTipoCausa extends JpaRepository<TipoCausa, Long>{
 	
 	@Query("SELECT t FROM TipoCausa t ORDER BY t.orden ASC")
 	List<TipoCausa> findAllTipoCausa();

@@ -4,7 +4,6 @@
 package co.org.dane.persistencia.entidades.modulo1;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -49,20 +46,6 @@ public class Operacion implements Serializable{
 	@Column( name = "NINGUNA", nullable = false, updatable = true, length = 3 )
 	private int ninguna;
 	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="ID_TIPO_OPERACION_FK", nullable = false, updatable = true)
 	private TipoOperacion tipoOperacion;
@@ -70,4 +53,93 @@ public class Operacion implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="ID_CARATULA_UNICA_FK", nullable = false, updatable = true)
 	private CaratulaUnica caratulaUnica;
+
+	public long getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * @return the bienes
+	 */
+	public int getBienes() {
+		return bienes;
+	}
+
+	/**
+	 * @param bienes the bienes to set
+	 */
+	public void setBienes(int bienes) {
+		this.bienes = bienes;
+	}
+
+	/**
+	 * @return the servicios
+	 */
+	public int getServicios() {
+		return servicios;
+	}
+
+	/**
+	 * @param servicios the servicios to set
+	 */
+	public void setServicios(int servicios) {
+		this.servicios = servicios;
+	}
+
+	/**
+	 * @return the ninguna
+	 */
+	public int getNinguna() {
+		return ninguna;
+	}
+
+	/**
+	 * @param ninguna the ninguna to set
+	 */
+	public void setNinguna(int ninguna) {
+		this.ninguna = ninguna;
+	}
+
+	/**
+	 * @return the tipoOperacion
+	 */
+	public TipoOperacion getTipoOperacion() {
+		return tipoOperacion;
+	}
+
+	/**
+	 * @param tipoOperacion the tipoOperacion to set
+	 */
+	public void setTipoOperacion(TipoOperacion tipoOperacion) {
+		this.tipoOperacion = tipoOperacion;
+	}
+
+	/**
+	 * @return the caratulaUnica
+	 */
+	public CaratulaUnica getCaratulaUnica() {
+		return caratulaUnica;
+	}
+
+	/**
+	 * @param caratulaUnica the caratulaUnica to set
+	 */
+	public void setCaratulaUnica(CaratulaUnica caratulaUnica) {
+		this.caratulaUnica = caratulaUnica;
+	}
+
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
 }

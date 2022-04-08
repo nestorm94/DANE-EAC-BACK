@@ -49,7 +49,7 @@ private static EstadoModulosFachada estadoModulosFachada;
 		dto.setId(entity.getId());
 		dto.setEstado(entity.getEstado());
 		dto.setIdModulo(entity.getModulo() != null ? entity.getModulo().getId(): 0);
-		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId(): 0);
+		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? (long) entity.getCaratulaUnica().getId(): 0);
 		
 		return dto;
 	}
@@ -73,6 +73,22 @@ private static EstadoModulosFachada estadoModulosFachada;
 		}
 		
 		return entity;
+	}
+
+
+	/**
+	 * @return the estadoModulosFachada
+	 */
+	public static EstadoModulosFachada getEstadoModulosFachada() {
+		return estadoModulosFachada;
+	}
+
+
+	/**
+	 * @param estadoModulosFachada the estadoModulosFachada to set
+	 */
+	public static void setEstadoModulosFachada(EstadoModulosFachada estadoModulosFachada) {
+		EstadoModulosFachada.estadoModulosFachada = estadoModulosFachada;
 	}
 }
 

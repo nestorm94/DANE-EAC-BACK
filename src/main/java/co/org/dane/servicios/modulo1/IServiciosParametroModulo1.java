@@ -8,7 +8,6 @@ import java.util.List;
 import co.org.dane.excepciones.EncuestaAnualComercioException;
 import co.org.dane.persistencia.entidades.modulo1.CodigoCIIU;
 import co.org.dane.persistencia.entidades.modulo1.Departamento;
-import co.org.dane.persistencia.entidades.modulo1.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.modulo1.Municipio;
 import co.org.dane.persistencia.entidades.modulo1.SubTipoOrganizacion;
 import co.org.dane.persistencia.entidades.modulo1.TipoCapitalSocial;
@@ -40,5 +39,4 @@ public interface IServiciosParametroModulo1 {
 	public List<CodigoCIIU> findCodigoCIIUByIdTipoVariable(int idTipoVariable) throws EncuestaAnualComercioException;
 	public List<Departamento> findAllDepartamento() throws EncuestaAnualComercioException;
 	public List<Municipio> findMunicipioByIdDepartamento(int idDepartamento) throws EncuestaAnualComercioException;
-	public List<EstadoEmpresa> findAllEstadoEmpresa() throws EncuestaAnualComercioException;
 }

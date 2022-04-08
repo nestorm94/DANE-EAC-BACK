@@ -4,7 +4,6 @@
 package co.org.dane.persistencia.entidades.modulo1;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -49,26 +46,100 @@ public class CapitalSocial implements Serializable{
 	@Column( name = "TOTAL", nullable = false, updatable = true, length = 3 )
 	private int total;
 	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private TipoCapitalSocial tipoCapitalSocial;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CARATULA_UNICA_FK", nullable = false, updatable = true)
 	private CaratulaUnica caratulaUnica;
+
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getPublico() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * @return the privado
+	 */
+	public int getPrivado() {
+		return privado;
+	}
+
+	/**
+	 * @param privado the privado to set
+	 */
+	public void setPrivado(int privado) {
+		this.privado = privado;
+	}
+
+	/**
+	 * @return the total
+	 */
+	public int getTotal() {
+		return total;
+	}
+
+	/**
+	 * @param total the total to set
+	 */
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	/**
+	 * @return the tipoCapitalSocial
+	 */
+	public TipoCapitalSocial getTipoCapitalSocial() {
+		return tipoCapitalSocial;
+	}
+
+	/**
+	 * @param tipoCapitalSocial the tipoCapitalSocial to set
+	 */
+	public void setTipoCapitalSocial(TipoCapitalSocial tipoCapitalSocial) {
+		this.tipoCapitalSocial = tipoCapitalSocial;
+	}
+
+	/**
+	 * @return the caratulaUnica
+	 */
+	public CaratulaUnica getCaratulaUnica() {
+		return caratulaUnica;
+	}
+
+	/**
+	 * @param caratulaUnica the caratulaUnica to set
+	 */
+	public void setCaratulaUnica(CaratulaUnica caratulaUnica) {
+		this.caratulaUnica = caratulaUnica;
+	}
+
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @param publico the publico to set
+	 */
+	public void setPublico(int publico) {
+		this.publico = publico;
+	}
+	
 	
 	
 }
