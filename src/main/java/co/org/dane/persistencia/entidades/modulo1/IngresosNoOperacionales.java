@@ -65,4 +65,74 @@ public class IngresosNoOperacionales implements Serializable{
 	@JoinColumn(name="ID_CARATULA_UNICA_FK")
 	private CaratulaUnica caratulaUnica;
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public long getValor() {
+		return valor;
+	}
+
+	public void setValor(long valor) {
+		this.valor = valor;
+	}
+
+	public String getUsuarioCreacion() {
+		return usuarioCreacion;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getUsuarioModificacion() {
+		return usuarioModificacion;
+	}
+
+	public void setUsuarioModificacion(String usuarioModificacion) {
+		this.usuarioModificacion = usuarioModificacion;
+	}
+
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	public TipoIngresosNoOperacionales getTipoIngresosNoOperacionales() {
+		return tipoIngresosNoOperacionales;
+	}
+
+	public void setTipoIngresosNoOperacionales(TipoIngresosNoOperacionales tipoIngresosNoOperacionales) {
+		this.tipoIngresosNoOperacionales = tipoIngresosNoOperacionales;
+	}
+
+	public CaratulaUnica getCaratulaUnica() {
+		return caratulaUnica;
+	}
+
+	public void setCaratulaUnica(CaratulaUnica caratulaUnica) {
+		this.caratulaUnica = caratulaUnica;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
+
 }

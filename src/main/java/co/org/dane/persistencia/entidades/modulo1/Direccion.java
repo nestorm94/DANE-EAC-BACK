@@ -92,6 +92,132 @@ public class Direccion implements Serializable{
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CARATULA_UNICA_FK", nullable = false, updatable = true)
-	private CaratulaUnica caratulaUnica;	
+	private CaratulaUnica caratulaUnica;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public double getLocalizacionGeoreferenciada() {
+		return localizacionGeoreferenciada;
+	}
+
+	public void setLocalizacionGeoreferenciada(double localizacionGeoreferenciada) {
+		this.localizacionGeoreferenciada = localizacionGeoreferenciada;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getRedesSociales() {
+		return redesSociales;
+	}
+
+	public void setRedesSociales(String redesSociales) {
+		this.redesSociales = redesSociales;
+	}
+
+	public String getCorreoElectronico() {
+		return correoElectronico;
+	}
+
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
+	}
+
+	public String getUsuarioCreacion() {
+		return usuarioCreacion;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getUsuarioModificacion() {
+		return usuarioModificacion;
+	}
+
+	public void setUsuarioModificacion(String usuarioModificacion) {
+		this.usuarioModificacion = usuarioModificacion;
+	}
+
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	public String getPaginaWeb() {
+		return paginaWeb;
+	}
+
+	public void setPaginaWeb(String paginaWeb) {
+		this.paginaWeb = paginaWeb;
+	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
+	public Municipio getMunicipio() {
+		return municipio;
+	}
+
+	public void setMunicipio(Municipio municipio) {
+		this.municipio = municipio;
+	}
+
+	public TipoDireccion getTipoDireccion() {
+		return tipoDireccion;
+	}
+
+	public void setTipoDireccion(TipoDireccion tipoDireccion) {
+		this.tipoDireccion = tipoDireccion;
+	}
+
+	public CaratulaUnica getCaratulaUnica() {
+		return caratulaUnica;
+	}
+
+	public void setCaratulaUnica(CaratulaUnica caratulaUnica) {
+		this.caratulaUnica = caratulaUnica;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 
 }

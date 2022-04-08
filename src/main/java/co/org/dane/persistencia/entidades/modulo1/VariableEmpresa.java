@@ -80,4 +80,114 @@ public class VariableEmpresa implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CARATULA_UNICA_FK", nullable = false, updatable = true)
 	private CaratulaUnica caratulaUnica;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getNumeroEstablecimientos() {
+		return numeroEstablecimientos;
+	}
+
+	public void setNumeroEstablecimientos(int numeroEstablecimientos) {
+		this.numeroEstablecimientos = numeroEstablecimientos;
+	}
+
+	public long getIngreso() {
+		return ingreso;
+	}
+
+	public void setIngreso(long ingreso) {
+		this.ingreso = ingreso;
+	}
+
+	public int getPersonalOcupado() {
+		return personalOcupado;
+	}
+
+	public void setPersonalOcupado(int personalOcupado) {
+		this.personalOcupado = personalOcupado;
+	}
+
+	public long getRemuneracion() {
+		return remuneracion;
+	}
+
+	public void setRemuneracion(long remuneracion) {
+		this.remuneracion = remuneracion;
+	}
+
+	public long getOtrosCostosGastos() {
+		return otrosCostosGastos;
+	}
+
+	public void setOtrosCostosGastos(long otrosCostosGastos) {
+		this.otrosCostosGastos = otrosCostosGastos;
+	}
+
+	public TipoVariable getSeccion() {
+		return seccion;
+	}
+
+	public void setSeccion(TipoVariable seccion) {
+		this.seccion = seccion;
+	}
+
+	public CodigoCIIU getCodigoCIIU() {
+		return codigoCIIU;
+	}
+
+	public void setCodigoCIIU(CodigoCIIU codigoCIIU) {
+		this.codigoCIIU = codigoCIIU;
+	}
+
+	public String getUsuarioCreacion() {
+		return usuarioCreacion;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getUsuarioModificacion() {
+		return usuarioModificacion;
+	}
+
+	public void setUsuarioModificacion(String usuarioModificacion) {
+		this.usuarioModificacion = usuarioModificacion;
+	}
+
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	public CaratulaUnica getCaratulaUnica() {
+		return caratulaUnica;
+	}
+
+	public void setCaratulaUnica(CaratulaUnica caratulaUnica) {
+		this.caratulaUnica = caratulaUnica;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 }

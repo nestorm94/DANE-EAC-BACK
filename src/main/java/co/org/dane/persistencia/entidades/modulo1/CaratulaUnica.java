@@ -278,5 +278,403 @@ public class CaratulaUnica implements Serializable{
 				+ estadosEncuestas + ", estadoModulos=" + estadoModulos + ", directorio=" + directorio + "]";
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getNumeroOrden() {
+		return numeroOrden;
+	}
+
+	public void setNumeroOrden(int numeroOrden) {
+		this.numeroOrden = numeroOrden;
+	}
+
+	public long getNumeroDocumento() {
+		return numeroDocumento;
+	}
+
+	public void setNumeroDocumento(long numeroDocumento) {
+		this.numeroDocumento = numeroDocumento;
+	}
+
+	public byte getDigitoVerificacion() {
+		return digitoVerificacion;
+	}
+
+	public void setDigitoVerificacion(byte digitoVerificacion) {
+		this.digitoVerificacion = digitoVerificacion;
+	}
+
+	public int getNumeroCamara() {
+		return numeroCamara;
+	}
+
+	public void setNumeroCamara(int numeroCamara) {
+		this.numeroCamara = numeroCamara;
+	}
+
+	public long getNumeroRegistro() {
+		return numeroRegistro;
+	}
+
+	public void setNumeroRegistro(long numeroRegistro) {
+		this.numeroRegistro = numeroRegistro;
+	}
+
+	public String getRazonSocial() {
+		return razonSocial;
+	}
+
+	public void setRazonSocial(String razonSocial) {
+		this.razonSocial = razonSocial;
+	}
+
+	public double getGeoreferenciaGerecia() {
+		return georeferenciaGerecia;
+	}
+
+	public void setGeoreferenciaGerecia(double georeferenciaGerecia) {
+		this.georeferenciaGerecia = georeferenciaGerecia;
+	}
+
+	public String getNombreComercial() {
+		return nombreComercial;
+	}
+
+	public void setNombreComercial(String nombreComercial) {
+		this.nombreComercial = nombreComercial;
+	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public String getPaginaWeb() {
+		return paginaWeb;
+	}
+
+	public void setPaginaWeb(String paginaWeb) {
+		this.paginaWeb = paginaWeb;
+	}
+
+	public double getGeoreferenciaNotificacion() {
+		return georeferenciaNotificacion;
+	}
+
+	public void setGeoreferenciaNotificacion(double georeferenciaNotificacion) {
+		this.georeferenciaNotificacion = georeferenciaNotificacion;
+	}
+
+	public String getCualTipoOrgaizacion() {
+		return cualTipoOrgaizacion;
+	}
+
+	public void setCualTipoOrgaizacion(String cualTipoOrgaizacion) {
+		this.cualTipoOrgaizacion = cualTipoOrgaizacion;
+	}
+
+	public Date getFechaConstitucionDesde() {
+		return fechaConstitucionDesde;
+	}
+
+	public void setFechaConstitucionDesde(Date fechaConstitucionDesde) {
+		this.fechaConstitucionDesde = fechaConstitucionDesde;
+	}
+
+	public Date getFechaConstitucionHasta() {
+		return fechaConstitucionHasta;
+	}
+
+	public void setFechaConstitucionHasta(Date fechaConstitucionHasta) {
+		this.fechaConstitucionHasta = fechaConstitucionHasta;
+	}
+
+	public String getCualOtroEstado() {
+		return cualOtroEstado;
+	}
+
+	public void setCualOtroEstado(String cualOtroEstado) {
+		this.cualOtroEstado = cualOtroEstado;
+	}
+
+	public String getNumeroUnidadesApoyo() {
+		return numeroUnidadesApoyo;
+	}
+
+	public void setNumeroUnidadesApoyo(String numeroUnidadesApoyo) {
+		this.numeroUnidadesApoyo = numeroUnidadesApoyo;
+	}
+
+	public String getUsuarioCreacion() {
+		return usuarioCreacion;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getUsuarioModificacion() {
+		return usuarioModificacion;
+	}
+
+	public void setUsuarioModificacion(String usuarioModificacion) {
+		this.usuarioModificacion = usuarioModificacion;
+	}
+
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	public Collection<Direccion> getDirecciones() {
+		return direcciones;
+	}
+
+	public void setDirecciones(Collection<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
+
+	public TipoDocumento getTipoDocumento() {
+		return tipoDocumento;
+	}
+
+	public void setTipoDocumento(TipoDocumento tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+
+	public TipoRegistroMercantil getTipoRegistroMercantil() {
+		return tipoRegistroMercantil;
+	}
+
+	public void setTipoRegistroMercantil(TipoRegistroMercantil tipoRegistroMercantil) {
+		this.tipoRegistroMercantil = tipoRegistroMercantil;
+	}
+
+	public TipoOrganizacion getTipoOrganizacion() {
+		return tipoOrganizacion;
+	}
+
+	public void setTipoOrganizacion(TipoOrganizacion tipoOrganizacion) {
+		this.tipoOrganizacion = tipoOrganizacion;
+	}
+
+	public SubTipoOrganizacion getSubTipoOrganizacion() {
+		return subTipoOrganizacion;
+	}
+
+	public void setSubTipoOrganizacion(SubTipoOrganizacion subTipoOrganizacion) {
+		this.subTipoOrganizacion = subTipoOrganizacion;
+	}
+
+	public EstadoEmpresa getEstadoEmpresa() {
+		return estadoEmpresa;
+	}
+
+	public void setEstadoEmpresa(EstadoEmpresa estadoEmpresa) {
+		this.estadoEmpresa = estadoEmpresa;
+	}
+
+	public TipoCausa getTipoCausa() {
+		return tipoCausa;
+	}
+
+	public void setTipoCausa(TipoCausa tipoCausa) {
+		this.tipoCausa = tipoCausa;
+	}
+
+	public Collection<CapitalSocial> getCapitalSocial() {
+		return capitalSocial;
+	}
+
+	public void setCapitalSocial(Collection<CapitalSocial> capitalSocial) {
+		this.capitalSocial = capitalSocial;
+	}
+
+	public Collection<Operacion> getOperaciones() {
+		return operaciones;
+	}
+
+	public void setOperaciones(Collection<Operacion> operaciones) {
+		this.operaciones = operaciones;
+	}
+
+	public Collection<VariableEmpresa> getVariablesEmpresa() {
+		return variablesEmpresa;
+	}
+
+	public void setVariablesEmpresa(Collection<VariableEmpresa> variablesEmpresa) {
+		this.variablesEmpresa = variablesEmpresa;
+	}
+
+	public Collection<IngresosNoOperacionales> getIngresosNoOperacionales() {
+		return ingresosNoOperacionales;
+	}
+
+	public void setIngresosNoOperacionales(Collection<IngresosNoOperacionales> ingresosNoOperacionales) {
+		this.ingresosNoOperacionales = ingresosNoOperacionales;
+	}
+
+	public InformacionFuncionamiento getInformacionFuncionamiento() {
+		return informacionFuncionamiento;
+	}
+
+	public void setInformacionFuncionamiento(InformacionFuncionamiento informacionFuncionamiento) {
+		this.informacionFuncionamiento = informacionFuncionamiento;
+	}
+
+	public PeriodoRecoleccion getPeriodoRecoleccion() {
+		return periodoRecoleccion;
+	}
+
+	public void setPeriodoRecoleccion(PeriodoRecoleccion periodoRecoleccion) {
+		this.periodoRecoleccion = periodoRecoleccion;
+	}
+
+	public Collection<NovedadEncuesta> getNovedadesEncuestas() {
+		return novedadesEncuestas;
+	}
+
+	public void setNovedadesEncuestas(Collection<NovedadEncuesta> novedadesEncuestas) {
+		this.novedadesEncuestas = novedadesEncuestas;
+	}
+
+	public Collection<EstadoEncuesta> getEstadosEncuestas() {
+		return estadosEncuestas;
+	}
+
+	public void setEstadosEncuestas(Collection<EstadoEncuesta> estadosEncuestas) {
+		this.estadosEncuestas = estadosEncuestas;
+	}
+
+	public Collection<EstadoModulos> getEstadoModulos() {
+		return estadoModulos;
+	}
+
+	public void setEstadoModulos(Collection<EstadoModulos> estadoModulos) {
+		this.estadoModulos = estadoModulos;
+	}
+
+	public Directorio getDirectorio() {
+		return directorio;
+	}
+
+	public void setDirectorio(Directorio directorio) {
+		this.directorio = directorio;
+	}
+
+	public Collection<IngresosNetosPorGrupos> getIngresosNetosPorGrupos() {
+		return ingresosNetosPorGrupos;
+	}
+
+	public void setIngresosNetosPorGrupos(Collection<IngresosNetosPorGrupos> ingresosNetosPorGrupos) {
+		this.ingresosNetosPorGrupos = ingresosNetosPorGrupos;
+	}
+
+	public Collection<VentasVehiculosMotos> getVentasVehiculosMotos() {
+		return ventasVehiculosMotos;
+	}
+
+	public void setVentasVehiculosMotos(Collection<VentasVehiculosMotos> ventasVehiculosMotos) {
+		this.ventasVehiculosMotos = ventasVehiculosMotos;
+	}
+
+	public Collection<MetodosVenta> getMetodosVenta() {
+		return metodosVenta;
+	}
+
+	public void setMetodosVenta(Collection<MetodosVenta> metodosVenta) {
+		this.metodosVenta = metodosVenta;
+	}
+
+	public ClientePrincipal getClientePrincipal() {
+		return clientePrincipal;
+	}
+
+	public void setClientePrincipal(ClientePrincipal clientePrincipal) {
+		this.clientePrincipal = clientePrincipal;
+	}
+
+	public Collection<VehiculosComercializados> getVehiculosComercializados() {
+		return vehiculosComercializados;
+	}
+
+	public void setVehiculosComercializados(Collection<VehiculosComercializados> vehiculosComercializados) {
+		this.vehiculosComercializados = vehiculosComercializados;
+	}
+
+	public Collection<PersonalOcupado> getPersonalOcupado() {
+		return personalOcupado;
+	}
+
+	public void setPersonalOcupado(Collection<PersonalOcupado> personalOcupado) {
+		this.personalOcupado = personalOcupado;
+	}
+
+	public Collection<GastosCausadosPersonal> getGastosCausadosPersonal() {
+		return gastosCausadosPersonal;
+	}
+
+	public void setGastosCausadosPersonal(Collection<GastosCausadosPersonal> gastosCausadosPersonal) {
+		this.gastosCausadosPersonal = gastosCausadosPersonal;
+	}
+
+	public Collection<ComprasInventario> getComprasInventarios() {
+		return comprasInventarios;
+	}
+
+	public void setComprasInventarios(Collection<ComprasInventario> comprasInventarios) {
+		this.comprasInventarios = comprasInventarios;
+	}
+
+	public Collection<CostosCausados> getCostosCausados() {
+		return costosCausados;
+	}
+
+	public void setCostosCausados(Collection<CostosCausados> costosCausados) {
+		this.costosCausados = costosCausados;
+	}
+
+	public Collection<OtrosGastosCausados> getOtrosGastosCausados() {
+		return otrosGastosCausados;
+	}
+
+	public void setOtrosGastosCausados(Collection<OtrosGastosCausados> otrosGastosCausados) {
+		this.otrosGastosCausados = otrosGastosCausados;
+	}
+
+	public Collection<ValorActivos> getValorActivos() {
+		return valorActivos;
+	}
+
+	public void setValorActivos(Collection<ValorActivos> valorActivos) {
+		this.valorActivos = valorActivos;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
+
 	
 }

@@ -66,6 +66,83 @@ public class TipoOrganizacion implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoOrganizacion")
 	private Collection<SubTipoOrganizacion> subTipoOrganizacion;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public int getOrden() {
+		return orden;
+	}
+
+	public void setOrden(int orden) {
+		this.orden = orden;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getUsuarioCreacion() {
+		return usuarioCreacion;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getUsuarioModificacion() {
+		return usuarioModificacion;
+	}
+
+	public void setUsuarioModificacion(String usuarioModificacion) {
+		this.usuarioModificacion = usuarioModificacion;
+	}
+
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	public Collection<SubTipoOrganizacion> getSubTipoOrganizacion() {
+		return subTipoOrganizacion;
+	}
+
+	public void setSubTipoOrganizacion(Collection<SubTipoOrganizacion> subTipoOrganizacion) {
+		this.subTipoOrganizacion = subTipoOrganizacion;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+
 	
 	
 }

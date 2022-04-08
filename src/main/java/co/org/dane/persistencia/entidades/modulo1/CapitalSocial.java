@@ -69,6 +69,92 @@ public class CapitalSocial implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CARATULA_UNICA_FK", nullable = false, updatable = true)
 	private CaratulaUnica caratulaUnica;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getPublico() {
+		return publico;
+	}
+
+	public void setPublico(int publico) {
+		this.publico = publico;
+	}
+
+	public int getPrivado() {
+		return privado;
+	}
+
+	public void setPrivado(int privado) {
+		this.privado = privado;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	public String getUsuarioCreacion() {
+		return usuarioCreacion;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getUsuarioModificacion() {
+		return usuarioModificacion;
+	}
+
+	public void setUsuarioModificacion(String usuarioModificacion) {
+		this.usuarioModificacion = usuarioModificacion;
+	}
+
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	public TipoCapitalSocial getTipoCapitalSocial() {
+		return tipoCapitalSocial;
+	}
+
+	public void setTipoCapitalSocial(TipoCapitalSocial tipoCapitalSocial) {
+		this.tipoCapitalSocial = tipoCapitalSocial;
+	}
+
+	public CaratulaUnica getCaratulaUnica() {
+		return caratulaUnica;
+	}
+
+	public void setCaratulaUnica(CaratulaUnica caratulaUnica) {
+		this.caratulaUnica = caratulaUnica;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 	
 	
 }

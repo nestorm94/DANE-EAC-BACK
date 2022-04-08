@@ -22,5 +22,33 @@ public class IngresosNoOperacionalesDTO implements Serializable{
 	private long valor;
 	private int idTipoIngresosNoOperacionales;
 	private long idCaratulaUnica;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public long getValor() {
+		return valor;
+	}
+	public void setValor(long valor) {
+		this.valor = valor;
+	}
+	public int getIdTipoIngresosNoOperacionales() {
+		return idTipoIngresosNoOperacionales;
+	}
+	public void setIdTipoIngresosNoOperacionales(int idTipoIngresosNoOperacionales) {
+		this.idTipoIngresosNoOperacionales = idTipoIngresosNoOperacionales;
+	}
+	public long getIdCaratulaUnica() {
+		return idCaratulaUnica;
+	}
+	public void setIdCaratulaUnica(long idCaratulaUnica) {
+		this.idCaratulaUnica = idCaratulaUnica;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 
 }

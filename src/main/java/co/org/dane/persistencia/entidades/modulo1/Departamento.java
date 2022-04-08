@@ -46,4 +46,42 @@ public class Departamento implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "departamento")
 	private Collection<Municipio> municipios;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Collection<Municipio> getMunicipios() {
+		return municipios;
+	}
+
+	public void setMunicipios(Collection<Municipio> municipios) {
+		this.municipios = municipios;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
+
 }

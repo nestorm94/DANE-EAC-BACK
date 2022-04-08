@@ -121,4 +121,186 @@ public class Directorio implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "directorio")
 	private Collection<CaratulaUnica> caratulas;
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getNumeroOrden() {
+		return numeroOrden;
+	}
+
+	public void setNumeroOrden(int numeroOrden) {
+		this.numeroOrden = numeroOrden;
+	}
+
+	public long getNumeroDocumento() {
+		return numeroDocumento;
+	}
+
+	public void setNumeroDocumento(long numeroDocumento) {
+		this.numeroDocumento = numeroDocumento;
+	}
+
+	public byte getDigitoVerificacion() {
+		return digitoVerificacion;
+	}
+
+	public void setDigitoVerificacion(byte digitoVerificacion) {
+		this.digitoVerificacion = digitoVerificacion;
+	}
+
+	public int getNumeroCamara() {
+		return numeroCamara;
+	}
+
+	public void setNumeroCamara(int numeroCamara) {
+		this.numeroCamara = numeroCamara;
+	}
+
+	public long getNumeroRegistro() {
+		return numeroRegistro;
+	}
+
+	public void setNumeroRegistro(long numeroRegistro) {
+		this.numeroRegistro = numeroRegistro;
+	}
+
+	public String getRazonSocial() {
+		return razonSocial;
+	}
+
+	public void setRazonSocial(String razonSocial) {
+		this.razonSocial = razonSocial;
+	}
+
+	public double getGeoreferenciaGerecia() {
+		return georeferenciaGerecia;
+	}
+
+	public void setGeoreferenciaGerecia(double georeferenciaGerecia) {
+		this.georeferenciaGerecia = georeferenciaGerecia;
+	}
+
+	public String getNombreComercial() {
+		return nombreComercial;
+	}
+
+	public void setNombreComercial(String nombreComercial) {
+		this.nombreComercial = nombreComercial;
+	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public String getPaginaWeb() {
+		return paginaWeb;
+	}
+
+	public void setPaginaWeb(String paginaWeb) {
+		this.paginaWeb = paginaWeb;
+	}
+
+	public double getGeoreferenciaNotificacion() {
+		return georeferenciaNotificacion;
+	}
+
+	public void setGeoreferenciaNotificacion(double georeferenciaNotificacion) {
+		this.georeferenciaNotificacion = georeferenciaNotificacion;
+	}
+
+	public String getCualTipoOrgaizacion() {
+		return cualTipoOrgaizacion;
+	}
+
+	public void setCualTipoOrgaizacion(String cualTipoOrgaizacion) {
+		this.cualTipoOrgaizacion = cualTipoOrgaizacion;
+	}
+
+	public Date getFechaConstitucionDesde() {
+		return fechaConstitucionDesde;
+	}
+
+	public void setFechaConstitucionDesde(Date fechaConstitucionDesde) {
+		this.fechaConstitucionDesde = fechaConstitucionDesde;
+	}
+
+	public Date getFechaConstitucionHasta() {
+		return fechaConstitucionHasta;
+	}
+
+	public void setFechaConstitucionHasta(Date fechaConstitucionHasta) {
+		this.fechaConstitucionHasta = fechaConstitucionHasta;
+	}
+
+	public String getCualOtroEstado() {
+		return cualOtroEstado;
+	}
+
+	public void setCualOtroEstado(String cualOtroEstado) {
+		this.cualOtroEstado = cualOtroEstado;
+	}
+
+	public String getUsuarioCreacion() {
+		return usuarioCreacion;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getUsuarioModificacion() {
+		return usuarioModificacion;
+	}
+
+	public void setUsuarioModificacion(String usuarioModificacion) {
+		this.usuarioModificacion = usuarioModificacion;
+	}
+
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Collection<CaratulaUnica> getCaratulas() {
+		return caratulas;
+	}
+
+	public void setCaratulas(Collection<CaratulaUnica> caratulas) {
+		this.caratulas = caratulas;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
+
 }
