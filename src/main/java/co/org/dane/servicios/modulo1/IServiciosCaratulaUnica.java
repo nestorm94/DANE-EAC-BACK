@@ -23,7 +23,7 @@ import co.org.dane.persistencia.entidades.modulo1.VariableEmpresa;
  */
 public interface IServiciosCaratulaUnica {
 
-	public CaratulaUnica guardarCaratulaUnica(CaratulaUnica caratulaUnica) throws EncuestaAnualComercioException;
+	public CaratulaUnica guardarCaratulaUnica(CaratulaUnica caratulaUnica, String usuario) throws EncuestaAnualComercioException;
 	public CaratulaUnica modificarCaratulaUnica(CaratulaUnica caratulaUnica) throws EncuestaAnualComercioException;
 	public CaratulaUnica eliminarCaratulaUnica(CaratulaUnica caratulaUnica) throws EncuestaAnualComercioException;
 	public CaratulaUnica cargarCaratulaUnica(String usuario) throws EncuestaAnualComercioException;
@@ -40,14 +40,14 @@ public interface IServiciosCaratulaUnica {
 	public List<EstadoModulos> getCaratulaUnicaEstadoModulos(long idCaratulaUnica) throws EncuestaAnualComercioException;
 	
 	//Crear y modificar Datos que hacen parte de la caratula unica.
-	public Direccion guardarDireccion(Direccion direccion) throws EncuestaAnualComercioException;
-	public CapitalSocial guardarCapitalSocial(CapitalSocial capitalSocial) throws EncuestaAnualComercioException;
-	public Operacion guardarOperacion(Operacion operacion) throws EncuestaAnualComercioException;
-	public VariableEmpresa guardarVariableEmpresa(VariableEmpresa variableEmpresa) throws EncuestaAnualComercioException;
-	public IngresosNoOperacionales guardarIngresosNoOperacionales(IngresosNoOperacionales ingresosNoOperacionales) throws EncuestaAnualComercioException;
-	public InformacionFuncionamiento guardarInformacionFuncionamiento(InformacionFuncionamiento informacionFuncionamiento) throws EncuestaAnualComercioException;
-	public NovedadEncuesta guardarNovedadEncuesta(NovedadEncuesta novedadEncuesta) throws EncuestaAnualComercioException;
-	public EstadoEncuesta guardarEstadoEncuesta(EstadoEncuesta estadoEncuesta) throws EncuestaAnualComercioException;
-	public EstadoModulos guardarEstadoModulos(EstadoModulos estadoModulos) throws EncuestaAnualComercioException;
+	public Direccion guardarDireccion(Direccion direccion, String usuario) throws EncuestaAnualComercioException;
+	public CapitalSocial guardarCapitalSocial(CapitalSocial capitalSocial, String usuario) throws EncuestaAnualComercioException;
+	public Operacion guardarOperacion(Operacion operacion, String usuario) throws EncuestaAnualComercioException;
+	public VariableEmpresa guardarVariableEmpresa(VariableEmpresa variableEmpresa, String usuario) throws EncuestaAnualComercioException;
+	public IngresosNoOperacionales guardarIngresosNoOperacionales(IngresosNoOperacionales ingresosNoOperacionales, String usuario) throws EncuestaAnualComercioException;
+	public InformacionFuncionamiento guardarInformacionFuncionamiento(InformacionFuncionamiento informacionFuncionamiento, String usuario) throws EncuestaAnualComercioException;
+	public NovedadEncuesta guardarNovedadEncuesta(NovedadEncuesta novedadEncuesta, String usuario) throws EncuestaAnualComercioException;
+	public EstadoEncuesta guardarEstadoEncuesta(EstadoEncuesta estadoEncuesta, String usuario) throws EncuestaAnualComercioException;
+	public EstadoModulos guardarEstadoModulos(EstadoModulos estadoModulos, String usuario) throws EncuestaAnualComercioException;
 	
 }

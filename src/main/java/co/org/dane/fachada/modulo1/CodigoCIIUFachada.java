@@ -60,20 +60,4 @@ public class CodigoCIIUFachada {
 		return entity;
 	}
 
-	/**
-	 * @return the codigoCIIUFachada
-	 */
-	public static CodigoCIIUFachada getCodigoCIIUFachada() {
-		return codigoCIIUFachada;
-	}
-
-	/**
-	 * @param codigoCIIUFachada the codigoCIIUFachada to set
-	 */
-	public static void setCodigoCIIUFachada(CodigoCIIUFachada codigoCIIUFachada) {
-		CodigoCIIUFachada.codigoCIIUFachada = codigoCIIUFachada;
-	}
-	
-	
-
 }

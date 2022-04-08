@@ -59,18 +59,4 @@ public class TipoVariableFachada {
 		
 		return entity;
 	}
-
-	/**
-	 * @return the tipoVariableFachada
-	 */
-	public static TipoVariableFachada getTipoVariableFachada() {
-		return tipoVariableFachada;
-	}
-
-	/**
-	 * @param tipoVariableFachada the tipoVariableFachada to set
-	 */
-	public static void setTipoVariableFachada(TipoVariableFachada tipoVariableFachada) {
-		TipoVariableFachada.tipoVariableFachada = tipoVariableFachada;
-	}
 }
