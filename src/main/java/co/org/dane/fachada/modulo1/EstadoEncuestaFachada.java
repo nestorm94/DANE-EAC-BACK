@@ -50,7 +50,7 @@ private static EstadoEncuestaFachada estadoEncuestaFachada;
 		dto.setFechaInicio(entity.getFechaInicio());
 		dto.setFechaFin(entity.getFechaFin());
 		dto.setActivo(entity.getActivo());
-		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? (long) entity.getCaratulaUnica().getId() : 0);
+		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId() : 0);
 		
 		return dto;
 	}
@@ -71,22 +71,6 @@ private static EstadoEncuestaFachada estadoEncuestaFachada;
 			entity.setCaratulaUnica(cu);
 		}
 		return entity;
-	}
-
-
-	/**
-	 * @return the estadoEncuestaFachada
-	 */
-	public static EstadoEncuestaFachada getEstadoEncuestaFachada() {
-		return estadoEncuestaFachada;
-	}
-
-
-	/**
-	 * @param estadoEncuestaFachada the estadoEncuestaFachada to set
-	 */
-	public static void setEstadoEncuestaFachada(EstadoEncuestaFachada estadoEncuestaFachada) {
-		EstadoEncuestaFachada.estadoEncuestaFachada = estadoEncuestaFachada;
 	}
 
 }

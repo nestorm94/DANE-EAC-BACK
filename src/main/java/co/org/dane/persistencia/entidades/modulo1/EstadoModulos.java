@@ -4,6 +4,7 @@
 package co.org.dane.persistencia.entidades.modulo1;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,6 +43,20 @@ public class EstadoModulos implements Serializable{
 	@Column( name = "ESTADO", nullable = false, updatable = true, length = 1 )
 	private String estado;
 	
+	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioCreacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
+	private Date fechaCreacion;
+	
+	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioModificacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
+	private Date fechaModificacion;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_MODULO_FK", nullable = false, updatable = true)
 	private Modulo modulo;
@@ -47,66 +64,5 @@ public class EstadoModulos implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CARATULA_UNICA_FK", nullable = false, updatable = true)
 	private CaratulaUnica caratulaUnica;
-
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the estado
-	 */
-	public String getEstado() {
-		return estado;
-	}
-
-	/**
-	 * @param estado the estado to set
-	 */
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	/**
-	 * @return the modulo
-	 */
-	public Modulo getModulo() {
-		return modulo;
-	}
-
-	/**
-	 * @param modulo the modulo to set
-	 */
-	public void setModulo(Modulo modulo) {
-		this.modulo = modulo;
-	}
-
-	/**
-	 * @return the caratulaUnica
-	 */
-	public CaratulaUnica getCaratulaUnica() {
-		return caratulaUnica;
-	}
-
-	/**
-	 * @param caratulaUnica the caratulaUnica to set
-	 */
-	public void setCaratulaUnica(CaratulaUnica caratulaUnica) {
-		this.caratulaUnica = caratulaUnica;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
 
 }

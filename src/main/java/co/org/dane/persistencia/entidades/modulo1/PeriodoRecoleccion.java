@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,54 +42,20 @@ public class PeriodoRecoleccion implements Serializable{
 	
 	@Column( name = "FECHA_HASTA", nullable = false )
 	private Date fechaHasta;
-
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * @return the fechaDesde
-	 */
-	public Date getFechaDesde() {
-		return fechaDesde;
-	}
-
-	/**
-	 * @param fechaDesde the fechaDesde to set
-	 */
-	public void setFechaDesde(Date fechaDesde) {
-		this.fechaDesde = fechaDesde;
-	}
-
-	/**
-	 * @return the fechaHasta
-	 */
-	public Date getFechaHasta() {
-		return fechaHasta;
-	}
-
-	/**
-	 * @param fechaHasta the fechaHasta to set
-	 */
-	public void setFechaHasta(Date fechaHasta) {
-		this.fechaHasta = fechaHasta;
-	}
-
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
 	
+	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioCreacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
+	private Date fechaCreacion;
+	
+	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
+	private String usuarioModificacion;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
+	private Date fechaModificacion;
 
 	
 

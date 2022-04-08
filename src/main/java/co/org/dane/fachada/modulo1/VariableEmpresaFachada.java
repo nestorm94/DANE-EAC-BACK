@@ -88,22 +88,6 @@ private static VariableEmpresaFachada variableEmpresaFachada;
 		
 		return entity;
 	}
-
-
-	/**
-	 * @return the variableEmpresaFachada
-	 */
-	public static VariableEmpresaFachada getVariableEmpresaFachada() {
-		return variableEmpresaFachada;
-	}
-
-
-	/**
-	 * @param variableEmpresaFachada the variableEmpresaFachada to set
-	 */
-	public static void setVariableEmpresaFachada(VariableEmpresaFachada variableEmpresaFachada) {
-		VariableEmpresaFachada.variableEmpresaFachada = variableEmpresaFachada;
-	}
 }
 /*
 private long id;
