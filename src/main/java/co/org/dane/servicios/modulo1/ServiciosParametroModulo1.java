@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import co.org.dane.excepciones.EncuestaAnualComercioException;
 import co.org.dane.persistencia.entidades.modulo1.CodigoCIIU;
 import co.org.dane.persistencia.entidades.modulo1.Departamento;
-import co.org.dane.persistencia.entidades.modulo1.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.modulo1.Municipio;
 import co.org.dane.persistencia.entidades.modulo1.SubTipoOrganizacion;
 import co.org.dane.persistencia.entidades.modulo1.TipoCapitalSocial;
@@ -25,7 +24,6 @@ import co.org.dane.persistencia.entidades.modulo1.TipoRegistroMercantil;
 import co.org.dane.persistencia.entidades.modulo1.TipoVariable;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioCodigoCIIU;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioDepartamento;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioEstadoEmpresa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioMunicipio;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioSubTipoOrganizacion;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoCapitalSocial;
@@ -83,10 +81,6 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 	
 	@Autowired
 	private RepositorioMunicipio repositorioMunicipio;
-	
-	@Autowired
-	private RepositorioEstadoEmpresa repositorioEstadoEmpresa;
-	
 	
 	@Override
 	public List<TipoCapitalSocial> findAllTipoCapitalSocial() throws EncuestaAnualComercioException {
@@ -147,17 +141,12 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 
 	@Override
 	public List<Departamento> findAllDepartamento() throws EncuestaAnualComercioException {
-		return this.repositorioDepartamento.findAllDepartamento();
+		return this.repositorioDepartamento.findAll();
 	}
 
 	@Override
 	public List<Municipio> findMunicipioByIdDepartamento(int idDepartamento) throws EncuestaAnualComercioException {
 		return this.repositorioMunicipio.findMunicipioByIdDepartamento(idDepartamento);
-	}
-
-	@Override
-	public List<EstadoEmpresa> findAllEstadoEmpresa() throws EncuestaAnualComercioException {
-		return this.repositorioEstadoEmpresa.findAll();
 	}
 
 }

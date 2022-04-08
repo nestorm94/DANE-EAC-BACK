@@ -73,6 +73,22 @@ public class IngresosNoOperacionalesFachada {
 		
 		return entity;
 	}
+
+
+	/**
+	 * @return the ingresosNoOperacionalesFachada
+	 */
+	public static IngresosNoOperacionalesFachada getIngresosNoOperacionalesFachada() {
+		return ingresosNoOperacionalesFachada;
+	}
+
+
+	/**
+	 * @param ingresosNoOperacionalesFachada the ingresosNoOperacionalesFachada to set
+	 */
+	public static void setIngresosNoOperacionalesFachada(IngresosNoOperacionalesFachada ingresosNoOperacionalesFachada) {
+		IngresosNoOperacionalesFachada.ingresosNoOperacionalesFachada = ingresosNoOperacionalesFachada;
+	}
 	
 }
 

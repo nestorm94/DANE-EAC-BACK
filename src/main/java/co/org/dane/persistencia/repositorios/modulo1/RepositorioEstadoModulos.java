@@ -16,7 +16,7 @@ import co.org.dane.persistencia.entidades.modulo1.EstadoModulos;
  *
  */
 @Repository
-public interface RepositorioEstadoModulos extends JpaRepository<EstadoModulos, Integer>{
+public interface RepositorioEstadoModulos extends JpaRepository<EstadoModulos, Long>{
 
 	@Query("SELECT e FROM EstadoModulos e WHERE e.caratulaUnica.id = :idCaratula")
 	List<EstadoModulos> findEstadoModulosByIdCaratula(long idCaratula);

@@ -53,8 +53,9 @@ public class DireccionFachada {
 		dto.setPaginaWeb(entity.getPaginaWeb());
 		dto.setIdDepartamento(entity.getDepartamento() != null ? entity.getDepartamento().getId() : 0);
 		dto.setIdMunicipio(entity.getMunicipio() != null ? entity.getMunicipio().getId() : 0);
-		dto.setIdTipoDireccion(entity.getTipoDireccion() != null ? entity.getTipoDireccion().getId() : 0);
+		dto.setIdCaratulaUnica(entity.getTipoDireccion() != null ? entity.getTipoDireccion().getId() : 0);
 		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId() : 0);
+		
 		return dto;
 	}
 	
@@ -95,6 +96,20 @@ public class DireccionFachada {
 		
 		return entity;
 		
+	}
+
+	/**
+	 * @return the direccioonFachada
+	 */
+	public static DireccionFachada getDireccioonFachada() {
+		return direccioonFachada;
+	}
+
+	/**
+	 * @param direccioonFachada the direccioonFachada to set
+	 */
+	public static void setDireccioonFachada(DireccionFachada direccioonFachada) {
+		DireccionFachada.direccioonFachada = direccioonFachada;
 	}
 	
 	

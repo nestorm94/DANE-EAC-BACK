@@ -76,6 +76,22 @@ public class OperacionFachada {
 		
 		return entity;
 	}
+
+
+	/**
+	 * @return the operacionFachada
+	 */
+	public static OperacionFachada getOperacionFachada() {
+		return operacionFachada;
+	}
+
+
+	/**
+	 * @param operacionFachada the operacionFachada to set
+	 */
+	public static void setOperacionFachada(OperacionFachada operacionFachada) {
+		OperacionFachada.operacionFachada = operacionFachada;
+	}
 	
 }
 /*

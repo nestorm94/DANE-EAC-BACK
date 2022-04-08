@@ -75,6 +75,16 @@ private static CapitalSocialFachada capitalSocialFachada;
 		
 		return entity;
 	}
+
+
+	public static CapitalSocialFachada getCapitalSocialFachada() {
+		return capitalSocialFachada;
+	}
+
+
+	public static void setCapitalSocialFachada(CapitalSocialFachada capitalSocialFachada) {
+		CapitalSocialFachada.capitalSocialFachada = capitalSocialFachada;
+	}
 		
 		
 

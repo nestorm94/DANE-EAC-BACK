@@ -4,7 +4,6 @@
 package co.org.dane.persistencia.entidades.modulo1;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -43,19 +40,55 @@ public class TipoDocumento implements Serializable{
 	@Column( name = "TIPO_DOCUMENTO", nullable = false, updatable = true, length = 100 )
 	private String tipoDocumento;
 
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * @return the orden
+	 */
+	public int getOrden() {
+		return orden;
+	}
+
+	/**
+	 * @param orden the orden to set
+	 */
+	public void setOrden(int orden) {
+		this.orden = orden;
+	}
+
+	/**
+	 * @return the tipoDocumento
+	 */
+	public String getTipoDocumento() {
+		return tipoDocumento;
+	}
+
+	/**
+	 * @param tipoDocumento the tipoDocumento to set
+	 */
+	public void setTipoDocumento(String tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
 	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
+
 	
 	
 }

@@ -58,4 +58,20 @@ public class DepartamentoFachada {
 		return entity;
 	}
 
+	/**
+	 * @return the departamentoFachada
+	 */
+	public static DepartamentoFachada getDepartamentoFachada() {
+		return departamentoFachada;
+	}
+
+	/**
+	 * @param departamentoFachada the departamentoFachada to set
+	 */
+	public static void setDepartamentoFachada(DepartamentoFachada departamentoFachada) {
+		DepartamentoFachada.departamentoFachada = departamentoFachada;
+	}
+	
+	
+
 }

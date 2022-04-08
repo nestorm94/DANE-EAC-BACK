@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,7 +50,6 @@ import co.org.dane.persistencia.entidades.modulo1.NovedadEncuesta;
 import co.org.dane.persistencia.entidades.modulo1.Operacion;
 import co.org.dane.persistencia.entidades.modulo1.VariableEmpresa;
 import co.org.dane.servicios.modulo1.IServiciosCaratulaUnica;
-import co.org.dane.springjwt.security.jwt.JwtUtils;
 
 /**
  * @author ALFONSO
@@ -65,16 +63,12 @@ public class CaratulaUnicaController {
 	@Autowired
 	private IServiciosCaratulaUnica serviciosCaratulaUnica;
 	
-	@Autowired
-	private JwtUtils jwtUtils;
-	
 	@PostMapping(path = "/caratulaUnica", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CaratulaUnicaDTO> save(@RequestHeader("Authorization") String token, @RequestBody CaratulaUnicaDTO caratulaUnicaDTO ) {
+	public ResponseEntity<CaratulaUnicaDTO> save(@RequestBody CaratulaUnicaDTO caratulaUnicaDTO ) {
 		try {
 			System.out.println("CaratulaUnicaController.save: " + caratulaUnicaDTO.toString());			
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			CaratulaUnica caratula = this.serviciosCaratulaUnica.guardarCaratulaUnica(CaratulaUnicaFachada.getInstance().convertirEntity(caratulaUnicaDTO), usuario);
+			CaratulaUnica caratula = this.serviciosCaratulaUnica.guardarCaratulaUnica(CaratulaUnicaFachada.getInstance().convertirEntity(caratulaUnicaDTO));
 			System.out.println(caratula);
 			
 			return ResponseEntity.created(new URI("/" + caratula.getId())).body(CaratulaUnicaFachada.getInstance().convertirDTO(caratula));
@@ -87,20 +81,6 @@ public class CaratulaUnicaController {
 	
 	@GetMapping(path = "/cargarCaratulaUnica/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CaratulaUnica> cargarCaratulaUnica(@RequestParam("usuario") String usuario) {
-		try {
-			System.out.println("usuario: " + usuario);
-			CaratulaUnica caratula = this.serviciosCaratulaUnica.cargarCaratulaUnica(usuario);
-			System.out.println("caratula: " + caratula);
-			return ResponseEntity.status(HttpStatus.OK).body(caratula);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
-	}
-	
-	/*@GetMapping(path = "/cargarCaratulaUnica/", 
-			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CaratulaUnicaDTO> cargarCaratulaUnica(@RequestParam("usuario") String usuario) {
 		try {
 			System.out.println("usuario: " + usuario);
@@ -111,7 +91,7 @@ public class CaratulaUnicaController {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
-	}*/
+	}
 	
 	@GetMapping(path = "/getCaratulaUnicaDirecciones/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -226,10 +206,9 @@ public class CaratulaUnicaController {
 	
 	@PostMapping(path = "/guardarDireccion/", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<DireccionDTO> guardarDireccion(@RequestHeader("Authorization") String token, @RequestBody DireccionDTO direccionDTO){
+	public ResponseEntity<DireccionDTO> guardarDireccion(@RequestBody DireccionDTO direccionDTO){
 		try {
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			Direccion dir = this.serviciosCaratulaUnica.guardarDireccion(DireccionFachada.getInstance().convertirEntity(direccionDTO), usuario);
+			Direccion dir = this.serviciosCaratulaUnica.guardarDireccion(DireccionFachada.getInstance().convertirEntity(direccionDTO));
 			return ResponseEntity.status(HttpStatus.OK).body(DireccionFachada.getInstance().convertirDTO(dir));
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -239,10 +218,9 @@ public class CaratulaUnicaController {
 	
 	@PostMapping(path = "/guardarCapitalSocial/", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CapitalSocialDTO> guardarCapitalSocial(@RequestHeader("Authorization") String token, @RequestBody CapitalSocialDTO capitalSocialDTO){
+	public ResponseEntity<CapitalSocialDTO> guardarCapitalSocial(@RequestBody CapitalSocialDTO capitalSocialDTO){
 		try {
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			CapitalSocial cap = this.serviciosCaratulaUnica.guardarCapitalSocial(CapitalSocialFachada.getInstance().convertirEntity(capitalSocialDTO), usuario);
+			CapitalSocial cap = this.serviciosCaratulaUnica.guardarCapitalSocial(CapitalSocialFachada.getInstance().convertirEntity(capitalSocialDTO));
 			return ResponseEntity.status(HttpStatus.OK).body(CapitalSocialFachada.getInstance().convertirDTO(cap));
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -252,10 +230,9 @@ public class CaratulaUnicaController {
 	
 	@PostMapping(path = "/guardarOperacion/", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<OperacionDTO> guardarOperacion(@RequestHeader("Authorization") String token, @RequestBody OperacionDTO operacionDTO){
+	public ResponseEntity<OperacionDTO> guardarOperacion(@RequestBody OperacionDTO operacionDTO){
 		try {
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			Operacion ope = this.serviciosCaratulaUnica.guardarOperacion(OperacionFachada.getInstance().convertirEntity(operacionDTO), usuario);
+			Operacion ope = this.serviciosCaratulaUnica.guardarOperacion(OperacionFachada.getInstance().convertirEntity(operacionDTO));
 			return ResponseEntity.status(HttpStatus.OK).body(OperacionFachada.getInstance().convertirDTO(ope));
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -265,10 +242,9 @@ public class CaratulaUnicaController {
 	
 	@PostMapping(path = "/guardarVariableEmpresa/", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<VariableEmpresaDTO> guardarVariableEmpresa(@RequestHeader("Authorization") String token, @RequestBody VariableEmpresaDTO variableEmpresaDTO){
+	public ResponseEntity<VariableEmpresaDTO> guardarVariableEmpresa(@RequestBody VariableEmpresaDTO variableEmpresaDTO){
 		try {
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			VariableEmpresa vem = this.serviciosCaratulaUnica.guardarVariableEmpresa(VariableEmpresaFachada.getInstance().convertirEntity(variableEmpresaDTO), usuario);
+			VariableEmpresa vem = this.serviciosCaratulaUnica.guardarVariableEmpresa(VariableEmpresaFachada.getInstance().convertirEntity(variableEmpresaDTO));
 			return ResponseEntity.status(HttpStatus.OK).body(VariableEmpresaFachada.getInstance().convertirDTO(vem));
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -278,11 +254,9 @@ public class CaratulaUnicaController {
 	
 	@PostMapping(path = "/guardarIngresosNoOperacionales/", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<IngresosNoOperacionalesDTO> guardarIngresosNoOperacionales(@RequestHeader("Authorization") String token, 
-			@RequestBody IngresosNoOperacionalesDTO ingresosNoOperacionalesDTO){
+	public ResponseEntity<IngresosNoOperacionalesDTO> guardarIngresosNoOperacionales(@RequestBody IngresosNoOperacionalesDTO ingresosNoOperacionalesDTO){
 		try {
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			IngresosNoOperacionales ino = this.serviciosCaratulaUnica.guardarIngresosNoOperacionales(IngresosNoOperacionalesFachada.getInstance().convertirEntity(ingresosNoOperacionalesDTO), usuario);
+			IngresosNoOperacionales ino = this.serviciosCaratulaUnica.guardarIngresosNoOperacionales(IngresosNoOperacionalesFachada.getInstance().convertirEntity(ingresosNoOperacionalesDTO));
 			return ResponseEntity.status(HttpStatus.OK).body(IngresosNoOperacionalesFachada.getInstance().convertirDTO(ino));
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -292,12 +266,9 @@ public class CaratulaUnicaController {
 	
 	@PostMapping(path = "/guardarInformacionFuncionamiento/", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<InformacionFuncionamientoDTO> guardarInformacionFuncionamiento(@RequestHeader("Authorization") String token, 
-			@RequestBody InformacionFuncionamientoDTO informacionFuncionamientoDTO){
+	public ResponseEntity<InformacionFuncionamientoDTO> guardarInformacionFuncionamiento(@RequestBody InformacionFuncionamientoDTO informacionFuncionamientoDTO){
 		try {
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			InformacionFuncionamiento inf = this.serviciosCaratulaUnica.guardarInformacionFuncionamiento(
-					InformacionFuncionamientoFachada.getInstance().convertirEntity(informacionFuncionamientoDTO), usuario);
+			InformacionFuncionamiento inf = this.serviciosCaratulaUnica.guardarInformacionFuncionamiento(InformacionFuncionamientoFachada.getInstance().convertirEntity(informacionFuncionamientoDTO));
 			return ResponseEntity.status(HttpStatus.OK).body(InformacionFuncionamientoFachada.getInstance().convertirDTO(inf));
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -307,11 +278,9 @@ public class CaratulaUnicaController {
 	
 	@PostMapping(path = "/guardarNovedadEncuesta/", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<NovedadEncuestaDTO> guardarNovedadEncuesta(@RequestHeader("Authorization") String token, 
-			@RequestBody NovedadEncuestaDTO novedadEncuestaDTO){
+	public ResponseEntity<NovedadEncuestaDTO> guardarNovedadEncuesta(@RequestBody NovedadEncuestaDTO novedadEncuestaDTO){
 		try {
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			NovedadEncuesta nve = this.serviciosCaratulaUnica.guardarNovedadEncuesta(NovedadEncuestaFachada.getInstance().convertirEntity(novedadEncuestaDTO), usuario);
+			NovedadEncuesta nve = this.serviciosCaratulaUnica.guardarNovedadEncuesta(NovedadEncuestaFachada.getInstance().convertirEntity(novedadEncuestaDTO));
 			return ResponseEntity.status(HttpStatus.OK).body(NovedadEncuestaFachada.getInstance().convertirDTO(nve));
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -321,11 +290,9 @@ public class CaratulaUnicaController {
 	
 	@PostMapping(path = "/guardarEstadoEncuesta/", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<EstadoEncuestaDTO> guardarEstadoEncuesta(@RequestHeader("Authorization") String token, 
-			@RequestBody EstadoEncuestaDTO estadoEncuestaDTO){
+	public ResponseEntity<EstadoEncuestaDTO> guardarEstadoEncuesta(@RequestBody EstadoEncuestaDTO estadoEncuestaDTO){
 		try {
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			EstadoEncuesta ese = this.serviciosCaratulaUnica.guardarEstadoEncuesta(EstadoEncuestaFachada.getInstance().convertirEntity(estadoEncuestaDTO), usuario);
+			EstadoEncuesta ese = this.serviciosCaratulaUnica.guardarEstadoEncuesta(EstadoEncuestaFachada.getInstance().convertirEntity(estadoEncuestaDTO));
 			return ResponseEntity.status(HttpStatus.OK).body(EstadoEncuestaFachada.getInstance().convertirDTO(ese));
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -335,16 +302,28 @@ public class CaratulaUnicaController {
 	
 	@PostMapping(path = "/guardarEstadoModulos/", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<EstadoModulosDTO> guardarEstadoModulos(@RequestHeader("Authorization") String token,
-			@RequestBody EstadoModulosDTO estadoModulosDTO){
+	public ResponseEntity<EstadoModulosDTO> guardarEstadoModulos(@RequestBody EstadoModulosDTO estadoModulosDTO){
 		try {
-			String usuario = jwtUtils.getUserNameFromJwtToken(token.substring(6));
-			EstadoModulos esm = this.serviciosCaratulaUnica.guardarEstadoModulos(EstadoModulosFachada.getInstance().convertirEntity(estadoModulosDTO), usuario);
+			EstadoModulos esm = this.serviciosCaratulaUnica.guardarEstadoModulos(EstadoModulosFachada.getInstance().convertirEntity(estadoModulosDTO));
 			return ResponseEntity.status(HttpStatus.OK).body(EstadoModulosFachada.getInstance().convertirDTO(esm));
 		}catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
+	}
+
+	/**
+	 * @return the serviciosCaratulaUnica
+	 */
+	public IServiciosCaratulaUnica getServiciosCaratulaUnica() {
+		return serviciosCaratulaUnica;
+	}
+
+	/**
+	 * @param serviciosCaratulaUnica the serviciosCaratulaUnica to set
+	 */
+	public void setServiciosCaratulaUnica(IServiciosCaratulaUnica serviciosCaratulaUnica) {
+		this.serviciosCaratulaUnica = serviciosCaratulaUnica;
 	}
 	
 }
