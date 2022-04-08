@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+/Users/nestorm/Documents/DANE/PROYECTO/DANE-EAC-BACK/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2761036976.index
+3750073990.index
+726332995.index
+3477935293.index
+1062336703.index
